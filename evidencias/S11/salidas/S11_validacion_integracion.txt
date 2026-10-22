@@ -1,0 +1,20 @@
+test_analiza_campos_disponibles_y_deja_otros_pendientes (test_gd02_validation.ValidacionCatalogoTests.test_analiza_campos_disponibles_y_deja_otros_pendientes) ... ok
+test_calcula_lo_disponible_sin_inventar_objetivos_ni_grafico (test_gd02_validation.ValidacionCatalogoTests.test_calcula_lo_disponible_sin_inventar_objetivos_ni_grafico) ... ok
+test_catalogo_completo_conserva_calculos (test_gd02_validation.ValidacionCatalogoTests.test_catalogo_completo_conserva_calculos) ... ok
+test_catalogo_completo_pasa (test_gd02_validation.ValidacionCatalogoTests.test_catalogo_completo_pasa) ... ok
+test_catalogo_parcial_acepta_vacios_sin_tratarlos_como_cero (test_gd02_validation.ValidacionCatalogoTests.test_catalogo_parcial_acepta_vacios_sin_tratarlos_como_cero) ... ok
+test_no_acepta_documentos_disponibles_mayores_a_solicitados (test_gd02_validation.ValidacionCatalogoTests.test_no_acepta_documentos_disponibles_mayores_a_solicitados) ... ok
+test_no_acepta_niveles_fuera_de_rango (test_gd02_validation.ValidacionCatalogoTests.test_no_acepta_niveles_fuera_de_rango) ... ok
+test_no_confunde_texto_invalido_con_valor_faltante (test_gd02_validation.ValidacionCatalogoTests.test_no_confunde_texto_invalido_con_valor_faltante) ... ok
+test_cantidad_de_incidentes_desconocida_no_se_convierte_en_cero (test_gd04_madurez.MadurezTests.test_cantidad_de_incidentes_desconocida_no_se_convierte_en_cero) ... ok
+test_ejes_tienen_el_mismo_peso_aunque_tengan_distinta_cantidad_de_filas (test_gd04_madurez.MadurezTests.test_ejes_tienen_el_mismo_peso_aunque_tengan_distinta_cantidad_de_filas) ... ok
+test_puntaje_desconocido_no_se_convierte_en_inicial (test_gd04_madurez.MadurezTests.test_puntaje_desconocido_no_se_convierte_en_inicial) ... ok
+test_rechaza_id_duplicado_y_eje_desconocido (test_gd04_madurez.MadurezTests.test_rechaza_id_duplicado_y_eje_desconocido) ... ok
+test_rechaza_indicador_sin_linea_base_y_sin_proyecto (test_gd04_madurez.MadurezTests.test_rechaza_indicador_sin_linea_base_y_sin_proyecto) ... ok
+test_rechaza_nivel_cero_y_fraccionario (test_gd04_madurez.MadurezTests.test_rechaza_nivel_cero_y_fraccionario) ... ok
+test_rechaza_un_eje_con_un_solo_indicador (test_gd04_madurez.MadurezTests.test_rechaza_un_eje_con_un_solo_indicador) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 2.430s
+
+OK

@@ -1,0 +1,12 @@
+test_cantidad_de_incidentes_desconocida_no_se_convierte_en_cero (test_gd04_madurez.MadurezTests.test_cantidad_de_incidentes_desconocida_no_se_convierte_en_cero) ... ok
+test_ejes_tienen_el_mismo_peso_aunque_tengan_distinta_cantidad_de_filas (test_gd04_madurez.MadurezTests.test_ejes_tienen_el_mismo_peso_aunque_tengan_distinta_cantidad_de_filas) ... ok
+test_puntaje_desconocido_no_se_convierte_en_inicial (test_gd04_madurez.MadurezTests.test_puntaje_desconocido_no_se_convierte_en_inicial) ... ok
+test_rechaza_id_duplicado_y_eje_desconocido (test_gd04_madurez.MadurezTests.test_rechaza_id_duplicado_y_eje_desconocido) ... ok
+test_rechaza_indicador_sin_linea_base_y_sin_proyecto (test_gd04_madurez.MadurezTests.test_rechaza_indicador_sin_linea_base_y_sin_proyecto) ... ok
+test_rechaza_nivel_cero_y_fraccionario (test_gd04_madurez.MadurezTests.test_rechaza_nivel_cero_y_fraccionario) ... ok
+test_rechaza_un_eje_con_un_solo_indicador (test_gd04_madurez.MadurezTests.test_rechaza_un_eje_con_un_solo_indicador) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.005s
+
+OK

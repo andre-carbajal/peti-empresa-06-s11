@@ -1,5 +1,7 @@
 # Plan de implementación — Persona 2: diagnóstico de ejes y madurez
 
+**Entrega del 22/10/2026:** terminados la matriz, GD04, el radar y la sección 6.1 consolidada con Persona 1. Ver [entrega e insumos para Kiara](entrega-persona-2.md). El diagnóstico conserva sus limitaciones documentadas.
+
 **Responsable:** Sofxx7  
 **Rama sugerida:** feat/s11-persona-2-ejes  
 **Fuentes:** [Ficha de Empresa 06](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur/FICHA.md), [mesa de servicio](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur/mesa-de-servicio-y-sla.md) y [cuestionario](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur/cuestionario-diagnostico.md).

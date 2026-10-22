@@ -1,0 +1,73 @@
+EMPRESA 06 — DIAGNÓSTICO DOCUMENTAL DE GOBIERNO DIGITAL
+Responsable del entregable: Persona 2 (Sofxx7)
+Fecha de revisión documental: 2026-10-22
+La revisión no es la fecha de medición de los hechos.
+Fuente de entrada: 06_gobierno_digital/GD03_ejes.csv
+
+=== NIVEL POR EJE ===
+1. Gobernanza: 1.00/5 | 3/3 puntuados | 0 sin línea base
+2. Servicios: 1.33/5 | 3/4 puntuados | 1 sin línea base
+3. Interoperabilidad: 1.00/5 | 1/3 puntuados | 2 sin línea base
+4. Seguridad digital: 1.00/5 | 3/3 puntuados | 1 sin línea base
+5. Datos: 1.00/5 | 1/3 puntuados | 2 sin línea base
+6. Identidad digital: 1.50/5 | 2/3 puntuados | 1 sin línea base
+7. Talento: 1.00/5 | 1/3 puntuados | 2 sin línea base
+8. Infraestructura: 1.50/5 | 2/3 puntuados | 1 sin línea base
+
+Indicadores: 25; con línea base: 15; sin línea base: 10.
+Puntajes documentados: 16/25.
+Indicadores sin puntaje: SER-04, INT-01, INT-02, DAT-02, DAT-03, IDE-02, TAL-02, TAL-03, INF-03
+NIVEL GLOBAL PROVISIONAL: 1.17 de 5
+Posicionamiento orientativo: Inicial — reactivo
+
+Media de puntajes conocidos dentro de cada eje; media de ocho ejes, sin ponderación por volumen.
+Los niveles vacíos se excluyen; el resultado parcial no acredita la madurez de todos los indicadores.
+No se reemplaza un dato desconocido por cero ni un puntaje desconocido por 1.
+SEG-03 no tiene cantidad de incidentes, pero sí puntaje de la práctica: se declara que no se registran.
+Los niveles 1–5 de madurez no son los niveles 0–5 de digitalización de servicios.
+
+=== INDICADORES SIN LÍNEA BASE Y PROYECTOS ===
+SER-04 — Nivel medio de digitalización ponderado por volumen
+P-SER-01: completar GD01 con volúmenes y recorridos validados; ejecutar GD02 y guardar su salida. Responsable propuesto: Persona 1.
+
+INT-01 — Número de integraciones activas verificadas
+P-INT-01: inventariar interfaces con origen, destino, mecanismo, responsable y evidencia de ejecución. Responsable propuesto: Sistemas.
+
+INT-02 — Proporción de documentos solicitados que la organización ya posee
+P-INT-02: registrar requisitos de dos recorridos y verificar documentos reutilizables; completar GD01 y calcular disponibles/solicitados. Responsable propuesto: Persona 1.
+
+SEG-03 — Incidentes de seguridad registrados en 12 meses
+P-SEG-01: habilitar registro de incidentes de seguridad con fecha, clasificación, cierre y revisión mensual. Responsable propuesto: Sistemas.
+
+DAT-02 — Entidades de datos con dueño designado
+P-DAT-01: elaborar inventario de entidades críticas y registrar dueño, custodio y aprobación; contar designaciones verificadas. Responsable propuesto: responsables de procesos y Sistemas.
+
+DAT-03 — Decisiones de gestión sustentadas en datos verificables
+P-DAT-02: definir universo y periodo de decisiones; registrar acta y dato utilizado; calcular decisiones con evidencia/decisiones revisadas. Responsable propuesto: Administración y Finanzas.
+
+IDE-02 — Usuarios con identidad única entre sistemas
+P-IDE-01: conciliar cuentas activas por sistema con identificadores internos y responsables; calcular usuarios con identidad única/usuarios del alcance. Responsable propuesto: Sistemas y RR. HH.
+
+TAL-02 — Personal capacitado en seguridad en los últimos 12 meses
+P-TAL-01: consolidar asistencia con fecha, tema y personal del periodo; calcular personas únicas capacitadas/personal del alcance. Responsable propuesto: RR. HH. y Sistemas.
+
+TAL-03 — Perfil de cultura digital validado
+P-TAL-02: definir un instrumento de cultura, validarlo, establecer alcance y participación y reportar resultados y limitaciones. Responsable propuesto: RR. HH.
+
+INF-03 — Disponibilidad observada de los servicios críticos
+P-INF-01: definir servicios críticos y ventanas; registrar indisponibilidad y monitoreo; calcular tiempo disponible/tiempo comprometido. Responsable propuesto: Sistemas.
+
+=== CÁLCULOS DOCUMENTALES REPRODUCIBLES ===
+SER-01: dueños designados = 0/7 x 100 = 0 %.
+SER-02: acuerdos escritos = 0/7 x 100 = 0 % (distintos del contrato del proveedor ERP).
+SER-03: clasificación completa = (1929 - 595)/1929 x 100 = 69.155003 %.
+INF-01: sistemas con soporte Sí = 3/5 x 100 = 60 %; 1 Parcial y 1 No.
+El 4,7 % de diferencia de inventario es declarado por la ficha; no se recalculó.
+
+=== VALIDACIÓN Y LIMITACIONES ===
+GD04 valida estructura, ocho ejes, mínimos, niveles, evidencia y proyectos.
+La evidencia procede de documentos del caso ficticio; no se realizó entrevista.
+No se ejecutaron recorridos de servicios ni se probaron controles en sistemas reales.
+La ponderación por volumen y la prueba de una sola vez dependen de Persona 1.
+La fecha de emisión de FICHA.md y varias fechas de corte no están indicadas.
+El cuestionario es voluntario, no validado y no incluye respuestas por pregunta.
