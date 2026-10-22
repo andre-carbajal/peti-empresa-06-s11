@@ -14,6 +14,8 @@ La rama parte de `develop`, que integra el trabajo de Personas 1 y 2. GD01 conti
 
 La tabla `tablero_columnas` mapea los encabezados originales a las columnas cargadas. Los campos base son texto para preservar vacíos; las vistas convierten únicamente los niveles y volúmenes necesarios.
 
+Antes de iniciar la base puede ejecutarse `python 06_gobierno_digital/GD05_carga_tablero.py --check`. Este modo valida los CSV presentes sin conexión y coteja los ocho promedios de GD03 con el resumen de Persona 2. Su salida versionada está en [GD05_validacion_fuentes.txt](../evidencias/S11/salidas/GD05_validacion_fuentes.txt).
+
 ## Seis preguntas
 
 Crear estas preguntas en una colección `S11 · Línea base` y guardar capturas completas en `evidencias/S11/` solo cuando estén accesibles.
@@ -29,8 +31,10 @@ Crear estas preguntas en una colección `S11 · Línea base` y guardar capturas 
 
 El promedio ponderado es SQL `NULL` cuando falta cualquier volumen o el total es cero. El promedio simple es descriptivo y no sustituye al indicador ponderado.
 
+**Comprobación de entorno del 22/10/2026:** Docker Desktop estaba abierto, pero `com.docker.service` estaba detenido. `docker ps` no respondió y el intento de iniciar el servicio devolvió un error de permisos. Los puertos 5433 y 3001 estaban cerrados. Por tanto, la carga PostgreSQL, las preguntas de Metabase y sus capturas no se declaran ejecutadas.
+
 ## Evidencia e informe
 
 Nombrar las capturas `tablero-01.png` a `tablero-06.png`; enlazarlas desde el informe solo tras comprobar las preguntas. Registrar la fecha de carga y el commit fuente. No mostrar contraseñas ni nombres de usuarios.
 
-La plantilla DOCX del curso y la matriz de 13 resultados no están en el repositorio. Para cerrar el PDF faltan la plantilla, los dos CSV, los volúmenes validados y los tres recorridos. Conservar la numeración de la plantilla y consultar al docente la discrepancia con la guía. El caso es ficticio; no afirmar que se probó una organización real.
+La plantilla DOCX oficial está en el [repositorio del curso](https://github.com/OscarJimenezFlores/PETI/blob/main/PLANTILLAS/SI886-PLANTILLA-TALLER.docx). El [borrador del informe](informe-taller-s11-borrador.md) ya contiene las 13 filas de resultados con estado y enlace. Para cerrar el PDF faltan nombres y códigos del equipo, los dos CSV, los volúmenes validados, los recorridos y las capturas verificadas. La guía llama «sección 5» a los resultados, pero la plantilla real los numera como sección 3; se conserva la plantilla y se consulta la discrepancia con el docente. El caso es ficticio; no afirmar que se probó una organización real.

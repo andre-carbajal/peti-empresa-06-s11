@@ -8,7 +8,7 @@ Repositorio de trabajo para el diagnóstico de gobierno digital y el tablero de 
 
 - **Persona 1 — catálogo:** siete servicios con canales generales y niveles provisionales 3→4; volúmenes y documentos concretos siguen pendientes. Ver [criterios de Persona 1](docs/criterios-provisionales-persona-1.md).
 - **Persona 2 — ejes y madurez:** entrega documental terminada con 25 indicadores, diez proyectos para líneas base pendientes, radar y sección 6.1 integrada con el aporte de Persona 1. Resultado provisional: 1,17/5 con 16 indicadores puntuados. Ver [entrega y evidencias](docs/entrega-persona-2.md).
-- **Persona 3 — tablero:** carga PostgreSQL, vistas y guía de seis preguntas en [docs/tablero-persona-3.md](docs/tablero-persona-3.md). El despliegue y las capturas siguen pendientes de Docker y los insumos faltantes.
+- **Persona 3 — tablero:** carga PostgreSQL, validación de fuentes, vistas y guía de seis preguntas en [docs/tablero-persona-3.md](docs/tablero-persona-3.md). La [matriz de 13 resultados](docs/informe-taller-s11-borrador.md) está redactada como borrador de informe. El despliegue, las capturas y el PDF final siguen pendientes de Docker, insumos faltantes y datos de la carátula.
 - El análisis publica los resultados que sí pueden calcularse y señala como pendientes los que requieren volúmenes o documentos. Los campos faltantes están vacíos; nunca se deben interpretar como cero.
 - Las matrices 04_normativa/NO03_matriz_cumplimiento.csv y 04_normativa/MG03_capacidad.csv no estaban en el workspace al preparar este repo; son un requisito pendiente del tablero.
 

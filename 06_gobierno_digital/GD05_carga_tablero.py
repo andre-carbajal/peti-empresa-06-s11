@@ -5,13 +5,11 @@ Los archivos ausentes se registran como pendientes; nunca se imputan ceros.
 """
 
 import csv
+import argparse
+import json
 import os
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
-
-import psycopg
-from psycopg import sql
-
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = {
@@ -65,6 +63,8 @@ def validate(table, headers, rows):
 
 
 def load_table(conn, table, headers, rows):
+    from psycopg import sql
+
     columns = [f"col_{i:02d}" for i in range(len(headers))]
     with conn.cursor() as cur:
         cur.execute(sql.SQL("DROP TABLE IF EXISTS {} CASCADE").format(sql.Identifier(table)))
@@ -119,9 +119,40 @@ def make_views(conn):
             FROM ejes_gd WHERE col_03 = 'No se mide'""")
 
 
+def audit(prepared):
+    """Comprueba cobertura y paridad con la salida versionada de GD04 sin PostgreSQL."""
+    services = prepared["servicios"][1]
+    ejes = prepared["ejes_gd"][1]
+    levels = [Decimal(row["Nivel actual (0–5)"]) for row in services if row["Nivel actual (0–5)"]]
+    volumes_missing = sum(not (row["Volumen anual"] or "").strip() for row in services)
+    unmeasured = sum(row["Línea base"] == "No se mide" for row in ejes)
+    by_axis = {}
+    for row in ejes:
+        if row["Nivel del eje (1–5)"]:
+            by_axis.setdefault(row["Eje"], []).append(Decimal(row["Nivel del eje (1–5)"]))
+    summary_path = ROOT / "evidencias/S11/salidas/GD04_resumen.json"
+    if summary_path.exists():
+        summary = json.loads(summary_path.read_text(encoding="utf-8"))
+        if len(ejes) != summary["indicadores"] or unmeasured != summary["sin_linea_base"]:
+            raise ValueError("GD03 no coincide con GD04_resumen.json en cobertura")
+        for axis in summary["ejes"]:
+            values = by_axis.get(axis["eje"], [])
+            if len(values) != axis["puntuados"]:
+                raise ValueError(f"Cobertura distinta en {axis['eje']}")
+            if values and abs(float(sum(values) / len(values)) - axis["nivel"]) > 1e-9:
+                raise ValueError(f"Promedio distinto en {axis['eje']}")
+    print(f"Servicios: {len(services)}; volúmenes pendientes: {volumes_missing}")
+    print(f"Promedio simple provisional: {sum(levels) / len(levels):.2f}" if levels else "Promedio simple: pendiente")
+    print(f"Indicadores: {len(ejes)}; sin línea base: {unmeasured}; puntuados: {sum(map(len, by_axis.values()))}")
+    print("Paridad con GD04_resumen.json: OK" if summary_path.exists() else "Paridad con GD04: sin archivo de referencia")
+
+
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="validar CSV y paridad GD04 sin conectar a PostgreSQL")
+    args = parser.parse_args()
     database_url = os.environ.get("DATABASE_URL")
-    if not database_url:
+    if not database_url and not args.check:
         raise SystemExit("Falta DATABASE_URL. Configure la variable de entorno sin versionar credenciales.")
     prepared = {}
     for table, path in SOURCES.items():
@@ -131,6 +162,12 @@ def main():
             prepared[table] = (headers, rows)
         else:
             print(f"{table}: PENDIENTE — falta {path.relative_to(ROOT)}")
+    if "servicios" in prepared and "ejes_gd" in prepared:
+        audit(prepared)
+    if args.check:
+        return
+    import psycopg
+
     with psycopg.connect(database_url) as conn:
         with conn.cursor() as cur:
             cur.execute("""CREATE TABLE IF NOT EXISTS tablero_columnas (

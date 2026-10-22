@@ -13,3 +13,8 @@ Guardar aquí capturas y salidas requeridas por el taller, sin nombres ni datos 
 - [Radar](../../graficos/GD_madurez.png): diagnóstico provisional con cobertura por eje.
 
 Estas salidas documentan una ejecución local y una evaluación de las fuentes del caso. No son capturas de Metabase ni pruebas de controles o recorridos en una organización real. El detalle está en [la entrega de Persona 2](../../docs/entrega-persona-2.md).
+
+## Persona 3 — preparación del tablero
+
+- [Validación de fuentes GD05](salidas/GD05_validacion_fuentes.txt): siete servicios, siete volúmenes pendientes, 25 indicadores, diez sin línea base y paridad con el resumen de Persona 2.
+- [Guía del tablero y estado del entorno](../../docs/tablero-persona-3.md): consultas previstas y comprobación de Docker. Aún no hay capturas de Metabase; no se debe usar una figura local como si fuera una captura de esa herramienta.

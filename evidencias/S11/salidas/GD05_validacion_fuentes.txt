@@ -1,0 +1,6 @@
+cumplimiento: PENDIENTE — falta 04_normativa\NO03_matriz_cumplimiento.csv
+capacidad: PENDIENTE — falta 04_normativa\MG03_capacidad.csv
+Servicios: 7; volúmenes pendientes: 7
+Promedio simple provisional: 3.00
+Indicadores: 25; sin línea base: 10; puntuados: 16
+Paridad con GD04_resumen.json: OK
