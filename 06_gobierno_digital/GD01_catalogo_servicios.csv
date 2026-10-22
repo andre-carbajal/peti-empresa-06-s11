@@ -1,0 +1,8 @@
+id,Servicio,Usuario destinatario,Volumen anual,Nivel actual (0–5),Canales,Tiempo de atención,"Documentos solicitados","De ellos, ya en poder de la organización",Sistemas que lo soportan,¿Trata datos personales?,Nivel objetivo,Justificación del objetivo
+S-01,ERP comercial,Toda la organización,,,,"Atención el mismo día (meta declarada; no firmada ni medida)",,,ERP comercial (servidor propio; soporte vigente),,,
+S-02,Correo electrónico,Personal administrativo,,,,,,,Correo corporativo (plataforma pendiente de confirmar),,,
+S-03,Red y conexión a internet,Toda la organización,,,,"",,,Red/conexión a internet (detalle pendiente),,,
+S-04,Equipos de cómputo y periféricos,Toda la organización,,,,48 horas (meta declarada; no medida),,,Inventario de activos desactualizado; detalle pendiente,,,
+S-05,Impresión y digitalización,Toda la organización,,,,,,,,,,
+S-06,Respaldo y recuperación de archivos,Jefaturas,,,,No definido,,,Respaldos a disco local (restauración no probada),,,
+S-07,Accesos y cuentas de usuario,Toda la organización,,,,24 horas (meta declarada; no medida),,,ERP y correo (alcance pendiente de confirmar),,,
