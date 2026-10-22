@@ -6,6 +6,7 @@ Los archivos ausentes se registran como pendientes; nunca se imputan ceros.
 
 import csv
 import os
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 import psycopg
@@ -19,6 +20,10 @@ SOURCES = {
     "cumplimiento": ROOT / "04_normativa/NO03_matriz_cumplimiento.csv",
     "capacidad": ROOT / "04_normativa/MG03_capacidad.csv",
 }
+REQUIRED = {
+    "servicios": ["id", "Servicio", "Volumen anual", "Nivel actual (0–5)", "Nivel objetivo"],
+    "ejes_gd": ["ID", "Eje", "Indicador", "Línea base", "Nivel del eje (1–5)", "Proyecto de instrumentación"],
+}
 
 
 def read_csv(path):
@@ -27,11 +32,39 @@ def read_csv(path):
         if not reader.fieldnames or len(set(reader.fieldnames)) != len(reader.fieldnames):
             raise ValueError(f"Encabezados vacíos o duplicados: {path}")
         rows = list(reader)
+        if any(None in row for row in rows):
+            raise ValueError(f"Filas con más campos que encabezados: {path}")
     return reader.fieldnames, rows
 
 
-def load_table(conn, table, path):
-    headers, rows = read_csv(path)
+def validate(table, headers, rows):
+    missing = set(REQUIRED.get(table, ())) - set(headers)
+    if missing:
+        raise ValueError(f"{table}: faltan columnas {', '.join(sorted(missing))}")
+    if not rows:
+        raise ValueError(f"{table}: el archivo está vacío")
+    if table == "servicios":
+        for row in rows:
+            for field in ("Volumen anual", "Nivel actual (0–5)", "Nivel objetivo"):
+                value = (row[field] or "").strip()
+                if not value:
+                    continue
+                try:
+                    number = Decimal(value)
+                except InvalidOperation as exc:
+                    raise ValueError(f"{row['id']}: {field} no es numérico") from exc
+                if number != int(number) or number < 0 or (field != "Volumen anual" and number > 5):
+                    raise ValueError(f"{row['id']}: {field} fuera de rango")
+    if table == "ejes_gd":
+        for row in rows:
+            value = (row["Nivel del eje (1–5)"] or "").strip()
+            if value and value not in {"1", "2", "3", "4", "5"}:
+                raise ValueError(f"{row['ID']}: nivel de eje inválido")
+            if row["Línea base"] == "No se mide" and not (row["Proyecto de instrumentación"] or "").strip():
+                raise ValueError(f"{row['ID']}: falta proyecto de instrumentación")
+
+
+def load_table(conn, table, headers, rows):
     columns = [f"col_{i:02d}" for i in range(len(headers))]
     with conn.cursor() as cur:
         cur.execute(sql.SQL("DROP TABLE IF EXISTS {} CASCADE").format(sql.Identifier(table)))
@@ -90,17 +123,22 @@ def main():
     database_url = os.environ.get("DATABASE_URL")
     if not database_url:
         raise SystemExit("Falta DATABASE_URL. Configure la variable de entorno sin versionar credenciales.")
+    prepared = {}
+    for table, path in SOURCES.items():
+        if path.exists():
+            headers, rows = read_csv(path)
+            validate(table, headers, rows)
+            prepared[table] = (headers, rows)
+        else:
+            print(f"{table}: PENDIENTE — falta {path.relative_to(ROOT)}")
     with psycopg.connect(database_url) as conn:
         with conn.cursor() as cur:
             cur.execute("""CREATE TABLE IF NOT EXISTS tablero_columnas (
                 tabla text NOT NULL, columna text NOT NULL, encabezado text NOT NULL,
                 PRIMARY KEY (tabla, columna))""")
-        for table, path in SOURCES.items():
-            if path.exists():
-                print(f"{table}: {load_table(conn, table, path)} filas de {path.relative_to(ROOT)}")
-            else:
-                print(f"{table}: PENDIENTE — falta {path.relative_to(ROOT)}")
-        if SOURCES["servicios"].exists() and SOURCES["ejes_gd"].exists():
+        for table, (headers, rows) in prepared.items():
+            print(f"{table}: {load_table(conn, table, headers, rows)} filas de {SOURCES[table].relative_to(ROOT)}")
+        if "servicios" in prepared and "ejes_gd" in prepared:
             make_views(conn)
         conn.commit()
 
