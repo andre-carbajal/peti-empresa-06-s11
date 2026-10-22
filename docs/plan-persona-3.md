@@ -4,6 +4,15 @@
 **Rama de trabajo:** main; cambios directos del equipo.
 **Fuente principal:** [Guía del taller, pasos C–F](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/3-TALLER.md).
 
+## Avance verificado al 22/10/2026
+
+- Integrados en `main` los aportes de Personas 1 y 2 y la preparación de Persona 3.
+- Compose validado para puertos locales 5433 y 3001; GD05 valida los CSV antes de cargar y ofrece `--check` sin PostgreSQL.
+- La validación de fuentes confirma siete servicios, 25 indicadores, diez sin línea base y paridad de los ocho promedios con GD04. Los 19 tests del repositorio pasan.
+- Seis preguntas definidas en [tablero-persona-3.md](tablero-persona-3.md) y matriz de 13 resultados redactada en [informe-taller-s11-borrador.md](informe-taller-s11-borrador.md).
+- Pendientes de ejecución: Docker no ofrece motor accesible en esta sesión; faltan NO03, MG03 y siete volúmenes anuales. Sin ello no hay cuatro tablas cargadas, seis visualizaciones ni capturas válidas.
+- Pendiente de entrega: el usuario pidió dejar en espera nombres, códigos y grupo de la carátula; el PDF final y las etiquetas se prepararán al cierre conjunto.
+
 ## Objetivo y entregables
 
 Desplegar PostgreSQL y Metabase solo en localhost; cargar los cuatro CSV definidos por el taller; construir al menos seis visualizaciones; archivar capturas/salidas en evidencias/S11/; y ensamblar el informe PDF con evidencias y enlaces.
