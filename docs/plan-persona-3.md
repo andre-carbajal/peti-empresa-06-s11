@@ -1,7 +1,7 @@
 # Plan de implementación — Persona 3: base local, tablero e integración
 
 **Responsable:** Kiara1616  
-**Rama sugerida:** feat/s11-persona-3-tablero  
+**Rama de trabajo:** main; cambios directos del equipo.
 **Fuente principal:** [Guía del taller, pasos C–F](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/3-TALLER.md).
 
 ## Objetivo y entregables
@@ -27,7 +27,7 @@ Desplegar PostgreSQL y Metabase solo en localhost; cargar los cuatro CSV definid
    - tabla: indicadores sin línea base.
 4. Guardar capturas completas y salidas reproducibles en evidencias/S11/; cada captura debe corresponder a una visualización accesible y estar enlazada desde el informe.
 5. Integrar el informe con la plantilla del curso. Añadir la matriz de resultados con 13 filas, estado y URL; preservar la numeración de la plantilla y dejar registrada la discrepancia con la guía para confirmación docente.
-6. Comprobar con Persona 1 y 2 que los valores de Metabase coinciden con los CSV y salidas de scripts; abrir PR a develop.
+6. Comprobar con Persona 1 y 2 que los valores de Metabase coinciden con los CSV y salidas de scripts; subir los cambios directamente a main.
 
 ## Pruebas y aceptación
 
@@ -36,4 +36,4 @@ Desplegar PostgreSQL y Metabase solo en localhost; cargar los cuatro CSV definid
 - Capturas y salidas están en evidencias/S11/ y sus URL están incluidas en el informe.
 - Los tres recorridos de validación del taller quedan ejecutados o documentados como simulación/limitación.
 - El PDF tiene carátula, integrantes y códigos, índice actualizado, instrucciones eliminadas, conclusiones sustentadas, referencias APA y anexos citados; no se presenta el DOCX como entrega final.
-- Después de integrar el PR, registrar las etiquetas v0.11 y taller-11 sobre el commit entregado.
+- Al cerrar la entrega en main, registrar las etiquetas v0.11 y taller-11 sobre el commit entregado.

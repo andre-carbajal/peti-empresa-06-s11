@@ -3,7 +3,7 @@
 **Entrega del 22/10/2026:** terminados la matriz, GD04, el radar y la sección 6.1 consolidada con Persona 1. Ver [entrega e insumos para Kiara](entrega-persona-2.md). El diagnóstico conserva sus limitaciones documentadas.
 
 **Responsable:** Sofxx7  
-**Rama sugerida:** feat/s11-persona-2-ejes  
+**Rama de trabajo:** main; cambios directos del equipo.
 **Fuentes:** [Ficha de Empresa 06](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur/FICHA.md), [mesa de servicio](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur/mesa-de-servicio-y-sla.md) y [cuestionario](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur/cuestionario-diagnostico.md).
 
 ## Objetivo y entregables
@@ -17,7 +17,7 @@ Producir 06_gobierno_digital/GD03_ejes.csv con los ocho ejes y al menos dos indi
 3. Completar un mínimo de dos indicadores por eje, usando la guía siguiente como punto de partida. Lo que no se conoce debe preguntarse en la entrevista simulada; si no se mide, escribir literalmente «No se mide» y proponer un proyecto para instrumentarlo.
 4. Justificar cada nivel de 1 a 5 con el modelo de madurez y el hecho fuente. No convertir «No se mide» en un valor de línea base; diferenciarlo del nivel de madurez asignado.
 5. Adaptar el cálculo del script fuente, ejecutar únicamente con el CSV completo y escribir los resultados y limitaciones en el PETI. El programa promedia los indicadores por eje y después promedia los ejes; documentar que no pondera indicadores por volumen.
-6. Revisar las filas contra fuentes y abrir PR a develop.
+6. Revisar las filas contra fuentes y subir los cambios directamente a main.
 
 ## Evidencia disponible por eje
 
@@ -38,4 +38,4 @@ Producir 06_gobierno_digital/GD03_ejes.csv con los ocho ejes y al menos dos indi
 - Cada línea base tiene valor, fuente y fecha, o declara «No se mide»; cada nivel tiene evidencia y justificación.
 - Se identifican y cuentan indicadores sin línea base, con proyecto de instrumentación para cada uno.
 - GD04_madurez.py corre desde la carpeta prevista, informa promedio por eje y nivel global, y produce el radar.
-- El PR explica valores no disponibles y no presenta como medido lo que solo es declarado.
+- La entrega explica valores no disponibles y no presenta como medido lo que solo es declarado.

@@ -53,24 +53,24 @@ El programa también funciona desde 06_gobierno_digital porque resuelve rutas a 
 | 10. Radar | graficos/GD_madurez.png | Informa cobertura parcial por eje. |
 | 12. Sección 6.1 | 6.1_situacion_actual.md | Consolidada con Persona 1; mantiene visibles los datos y validaciones pendientes. |
 
-El informe debe enlazar el [PR #1](https://github.com/andre-carbajal/peti-empresa-06-s11/pull/1) y los artefactos de la rama feat/s11-persona-2-ejes. Las etiquetas v0.11 y taller-11 corresponden al cierre conjunto del taller.
+El informe debe enlazar el [PR #1](https://github.com/andre-carbajal/peti-empresa-06-s11/pull/1) y los artefactos de main. Las etiquetas v0.11 y taller-11 corresponden al cierre conjunto del taller.
 
 ## Entrega a Kiara
 
-Kiara puede preparar PostgreSQL y Metabase y utilizar desde ahora GD03, el radar y los resúmenes. La rama feat/s11-persona-2-ejes incorpora el commit a00c6ff de André y la sección 6.1 consolidada.
+Kiara puede preparar PostgreSQL y Metabase y utilizar desde ahora GD03, el radar y los resúmenes. La rama main incorpora el commit a00c6ff de André y la sección 6.1 consolidada.
 
-- [Matriz de ejes en GitHub](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/feat/s11-persona-2-ejes/06_gobierno_digital/GD03_ejes.csv)
-- [Promedios numéricos por eje](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/feat/s11-persona-2-ejes/evidencias/S11/salidas/GD04_resumen_ejes.csv)
-- [Indicadores sin línea base y proyectos](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/feat/s11-persona-2-ejes/evidencias/S11/salidas/GD04_sin_linea_base.csv)
-- [Sección 6.1 consolidada](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/feat/s11-persona-2-ejes/06_gobierno_digital/6.1_situacion_actual.md)
+- [Matriz de ejes en GitHub](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/GD03_ejes.csv)
+- [Promedios numéricos por eje](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/evidencias/S11/salidas/GD04_resumen_ejes.csv)
+- [Indicadores sin línea base y proyectos](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/evidencias/S11/salidas/GD04_sin_linea_base.csv)
+- [Sección 6.1 consolidada](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/6.1_situacion_actual.md)
 
 Los gráficos de niveles del catálogo se pueden presentar como hipótesis provisional. La tarjeta de promedio ponderado y el cálculo de documentos reutilizables deben señalar datos pendientes hasta disponer de sus insumos. Las matrices normativas y de capacidad también siguen siendo dependencias del tablero.
 
 ## Pendientes de validación del equipo
 
-1. Confirmar con el docente los volúmenes, documentos y recorridos de servicios.
+1. Los volúmenes y documentos no están disponibles para esta entrega; conservar esa limitación y no sustituirlos por cero.
 2. Validar los puntajes documentales y las fechas de corte; conservar las limitaciones que no puedan resolverse.
 3. Cuando lleguen los datos, actualizar SER-04 e INT-02 y regenerar GD04 si cambia su evaluación.
-4. Persona 3 prepara el tablero y el informe PDF; el equipo revisa la integración a develop y crea las etiquetas al cierre.
+4. Persona 3 prepara el tablero y el informe PDF; el equipo guarda los cambios directamente en main y crea las etiquetas al cierre.
 
 Estos pendientes se entregan identificados y con su proyecto; no se inventan mediciones para completar casillas.

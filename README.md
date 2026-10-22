@@ -20,7 +20,7 @@ Repositorio de trabajo para el diagnóstico de gobierno digital y el tablero de 
 | 2 | Sofxx7 | Ocho ejes, evidencia, línea base y madurez |
 | 3 | Kiara1616 | PostgreSQL, Metabase, tablero e integración del informe |
 
-Integrar el trabajo mediante ramas feat/s11-persona-1-catalogo, feat/s11-persona-2-ejes y feat/s11-persona-3-tablero, con Pull Request hacia develop. No incorporar resultados sin fuente y evidencia.
+El equipo trabaja directamente en main, sin abrir nuevos Pull Requests. Antes de editar: git pull --ff-only. Después de guardar: git add, git commit y git push. Los aportes anteriores están integrados y se conserva su historial. Registrar como no disponibles los volúmenes y documentos que el equipo no tiene; no reemplazarlos por cero.
 
 ## Estructura
 
