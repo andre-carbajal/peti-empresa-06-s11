@@ -2,6 +2,8 @@
 
 Repositorio de trabajo para el diagnóstico de gobierno digital y el tablero de línea base de Distribuidora Andina del Sur S.A.C. El caso del curso es ficticio. Este repositorio es público por decisión del equipo: no agregar datos de una organización real, nombres de usuarios, registros de atenciones ni credenciales.
 
+**Confidencialidad:** la guía del taller clasifica el catálogo y sus volúmenes como confidenciales. El CSV público es solo un borrador del caso ficticio y deja sus métricas vacías; no incorporar respuestas de entrevista ni cifras hasta confirmar con el docente que pueden publicarse. Si se requiere versionar esos datos, cambiar el repositorio a privado antes de cargarlos.
+
 ## Estado
 
 - **Persona 1 — catálogo:** borrador de siete servicios preparado; volúmenes, niveles, documentos y canales por servicio esperan la entrevista simulada con el docente.
