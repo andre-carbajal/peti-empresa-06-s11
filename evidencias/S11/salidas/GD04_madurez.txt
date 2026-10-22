@@ -68,6 +68,6 @@ El 4,7 % de diferencia de inventario es declarado por la ficha; no se recalculó
 GD04 valida estructura, ocho ejes, mínimos, niveles, evidencia y proyectos.
 La evidencia procede de documentos del caso ficticio; no se realizó entrevista.
 No se ejecutaron recorridos de servicios ni se probaron controles en sistemas reales.
-La ponderación por volumen y la prueba de una sola vez dependen de Persona 1.
+Volúmenes y documentos por servicio no disponibles para esta entrega; no se sustituyen por cero.
 La fecha de emisión de FICHA.md y varias fechas de corte no están indicadas.
 El cuestionario es voluntario, no validado y no incluye respuestas por pregunta.

@@ -16,15 +16,19 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 LEVEL = "Nivel del eje (1–5)"
+BASELINE = "Línea base"
+BASELINE_STATE = "Estado de línea base"
+PROJECT = "Proyecto de instrumentación"
+NO_MEASUREMENT = "no se mide"
 AXES = (
     "1. Gobernanza", "2. Servicios", "3. Interoperabilidad",
     "4. Seguridad digital", "5. Datos", "6. Identidad digital",
     "7. Talento", "8. Infraestructura",
 )
 REQUIRED = (
-    "ID", "Eje", "Indicador", "Línea base", "Fuente y fecha del dato",
-    "Evidencia", LEVEL, "Observación", "Estado de línea base",
-    "Proyecto de instrumentación",
+    "ID", "Eje", "Indicador", BASELINE, "Fuente y fecha del dato",
+    "Evidencia", LEVEL, "Observación", BASELINE_STATE,
+    PROJECT,
 )
 NAMES = {
     1: "Inicial — reactivo", 2: "Emergente — en formación",
@@ -51,6 +55,33 @@ def leer_ejes(path):
     return rows
 
 
+def validar_linea_base(row):
+    identifier = row["ID"]
+    no_baseline = row[BASELINE].casefold() == NO_MEASUREMENT
+    if no_baseline != (row[BASELINE_STATE] == "No disponible"):
+        raise ValueError(f"{identifier}: estado y disponibilidad de línea base no coinciden.")
+    if no_baseline and not row[PROJECT].startswith("P-"):
+        raise ValueError(f"{identifier}: falta proyecto de instrumentación.")
+    if row[BASELINE_STATE] not in {"Declarada", "Documental", "Calculada", "No disponible"}:
+        raise ValueError(f"{identifier}: estado de línea base desconocido.")
+
+
+def validar_fila(row):
+    identifier = row["ID"]
+    if row["Eje"] not in AXES:
+        raise ValueError(f"{identifier}: eje desconocido.")
+    for field in REQUIRED:
+        if field != LEVEL and not row[field]:
+            raise ValueError(f"{identifier}: falta «{field}».")
+    score = row[LEVEL]
+    if score and score not in {"1", "2", "3", "4", "5"}:
+        raise ValueError(f"{identifier}: nivel inválido; use enteros 1–5 o vacío.")
+    validar_linea_base(row)
+    url = urlparse(row["Evidencia"])
+    if url.scheme != "https" or url.netloc != "github.com":
+        raise ValueError(f"{identifier}: se requiere una URL HTTPS de evidencia en GitHub.")
+
+
 def validar_ejes(rows):
     if not rows:
         raise ValueError("El diagnóstico está vacío.")
@@ -61,25 +92,8 @@ def validar_ejes(rows):
         if not identifier or identifier in identifiers:
             raise ValueError("Cada indicador debe tener un ID único y no vacío.")
         identifiers.add(identifier)
-        if row["Eje"] not in AXES:
-            raise ValueError(f"{identifier}: eje desconocido.")
+        validar_fila(row)
         counts[row["Eje"]] += 1
-        for field in REQUIRED:
-            if field != LEVEL and not row[field]:
-                raise ValueError(f"{identifier}: falta «{field}».")
-        score = row[LEVEL]
-        if score and score not in {"1", "2", "3", "4", "5"}:
-            raise ValueError(f"{identifier}: nivel inválido; use enteros 1–5 o vacío.")
-        no_baseline = row["Línea base"].casefold() == "no se mide"
-        if no_baseline != (row["Estado de línea base"] == "No disponible"):
-            raise ValueError(f"{identifier}: estado y disponibilidad de línea base no coinciden.")
-        if no_baseline and not row["Proyecto de instrumentación"].startswith("P-"):
-            raise ValueError(f"{identifier}: falta proyecto de instrumentación.")
-        if row["Estado de línea base"] not in {"Declarada", "Documental", "Calculada", "No disponible"}:
-            raise ValueError(f"{identifier}: estado de línea base desconocido.")
-        url = urlparse(row["Evidencia"])
-        if url.scheme != "https" or url.netloc != "github.com":
-            raise ValueError(f"{identifier}: se requiere una URL HTTPS de evidencia en GitHub.")
     for axis in AXES:
         if counts[axis] < 2:
             raise ValueError(f"{axis}: se requieren al menos dos indicadores.")
@@ -94,14 +108,14 @@ def resumir(rows):
             "eje": axis,
             "indicadores": len(selected),
             "puntuados": len(scores),
-            "sin_linea_base": sum(row["Línea base"].casefold() == "no se mide" for row in selected),
+            "sin_linea_base": sum(row[BASELINE].casefold() == NO_MEASUREMENT for row in selected),
             "nivel": mean(scores) if scores else None,
         })
     # No se redondean los promedios por eje antes de promediar los ocho ejes.
     global_score = mean(axis["nivel"] for axis in axes) if all(
         axis["nivel"] is not None for axis in axes
     ) else None
-    no_baseline = [row for row in rows if row["Línea base"].casefold() == "no se mide"]
+    no_baseline = [row for row in rows if row[BASELINE].casefold() == NO_MEASUREMENT]
     unscored = [row["ID"] for row in rows if not row[LEVEL]]
     return {
         "fecha_revision_documental": "2026-10-22",
@@ -118,7 +132,7 @@ def resumir(rows):
         "limitacion": "Los niveles vacíos se excluyen; el resultado parcial no acredita la madurez de todos los indicadores.",
         "proyectos": [
             {"id": row["ID"], "eje": row["Eje"], "indicador": row["Indicador"],
-             "proyecto": row["Proyecto de instrumentación"]}
+             "proyecto": row[PROJECT]}
             for row in no_baseline
         ],
     }
@@ -173,11 +187,19 @@ def construir_salida(summary):
         "GD04 valida estructura, ocho ejes, mínimos, niveles, evidencia y proyectos.",
         "La evidencia procede de documentos del caso ficticio; no se realizó entrevista.",
         "No se ejecutaron recorridos de servicios ni se probaron controles en sistemas reales.",
-        "La ponderación por volumen y la prueba de una sola vez dependen de Persona 1.",
+        "Volúmenes y documentos por servicio no disponibles para esta entrega; no se sustituyen por cero.",
         "La fecha de emisión de FICHA.md y varias fechas de corte no están indicadas.",
         "El cuestionario es voluntario, no validado y no incluye respuestas por pregunta.",
     ])
     return "\n".join(lines) + "\n"
+
+
+def alineacion_etiqueta(index):
+    if index in (1, 2, 3):
+        return "left"
+    if index in (5, 6, 7):
+        return "right"
+    return "center"
 
 
 def guardar_radar(summary, path):
@@ -201,7 +223,7 @@ def guardar_radar(summary, path):
     ax.set_xticks(angles)
     ax.set_xticklabels(labels, fontsize=10)
     for index, label in enumerate(ax.get_xticklabels()):
-        label.set_horizontalalignment("left" if index in (1, 2, 3) else "right" if index in (5, 6, 7) else "center")
+        label.set_horizontalalignment(alineacion_etiqueta(index))
     ax.tick_params(axis="x", pad=18)
     ax.set_yticks([1, 2, 3, 4, 5])
     ax.set_ylim(0, 5)
@@ -220,12 +242,12 @@ def guardar_radar(summary, path):
     plt.close(fig)
 
 
-def ejecutar(csv_path, output_root):
-    rows = leer_ejes(csv_path)
+def ejecutar():
+    # Las entradas y salidas pertenecen al proyecto; no se aceptan rutas de la CLI.
+    rows = leer_ejes(Path(__file__).with_name("GD03_ejes.csv"))
     summary = resumir(rows)
-    output_root = Path(output_root)
-    evidence = output_root / "evidencias" / "S11" / "salidas"
-    graphs = output_root / "graficos"
+    evidence = ROOT / "evidencias" / "S11" / "salidas"
+    graphs = ROOT / "graficos"
     evidence.mkdir(parents=True, exist_ok=True)
     graphs.mkdir(parents=True, exist_ok=True)
     output = construir_salida(summary)
@@ -240,7 +262,7 @@ def ejecutar(csv_path, output_root):
         writer = csv.DictWriter(stream, fieldnames=REQUIRED)
         writer.writeheader()
         writer.writerows({key: row[key] for key in REQUIRED} for row in rows
-                         if row["Línea base"].casefold() == "no se mide")
+                         if row[BASELINE].casefold() == NO_MEASUREMENT)
     guardar_radar(summary, graphs / "GD_madurez.png")
     print(output)
     print("Radar: graficos/GD_madurez.png")
@@ -250,10 +272,8 @@ def ejecutar(csv_path, output_root):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--csv", type=Path, default=Path(__file__).with_name("GD03_ejes.csv"))
-    parser.add_argument("--salida", type=Path, default=ROOT)
-    args = parser.parse_args()
+    parser.parse_args()
     try:
-        ejecutar(args.csv, args.salida)
+        ejecutar()
     except (ValueError, OSError) as error:
         parser.exit(1, f"GD04 no generó resultados válidos: {error}\n")

@@ -1,5 +1,8 @@
 """Comprobaciones de los casos que pueden distorsionar el diagnóstico."""
 import importlib.util
+import subprocess
+import sys
+import tempfile
 import unittest
 from copy import deepcopy
 from pathlib import Path
@@ -11,6 +14,16 @@ spec.loader.exec_module(gd04)
 
 
 class MadurezTests(unittest.TestCase):
+    def test_cli_rechaza_rutas_externas_sin_crear_archivos(self):
+        for option in ("--csv", "--salida"):
+            with self.subTest(opcion=option), tempfile.TemporaryDirectory() as external:
+                result = subprocess.run(
+                    [sys.executable, str(ROOT / "06_gobierno_digital" / "GD04_madurez.py"), option, external],
+                    capture_output=True, timeout=15, check=False,
+                )
+                self.assertEqual(result.returncode, 2)
+                self.assertEqual(list(Path(external).iterdir()), [])
+
     def setUp(self):
         self.rows = gd04.leer_ejes(ROOT / "06_gobierno_digital" / "GD03_ejes.csv")
 
