@@ -1,0 +1,4 @@
+Python: 3.13.15
+matplotlib: 3.11.2
+Plataforma: Windows
+Fecha de revision documental: 2026-10-22

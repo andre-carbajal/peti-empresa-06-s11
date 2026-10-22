@@ -1,0 +1,143 @@
+{
+  "fecha_revision_documental": "2026-10-22",
+  "alcance": "Diagnóstico documental provisional; no es entrevista ni validación operativa.",
+  "indicadores": 25,
+  "con_linea_base": 15,
+  "sin_linea_base": 10,
+  "puntuados": 16,
+  "sin_puntaje": [
+    "SER-04",
+    "INT-01",
+    "INT-02",
+    "DAT-02",
+    "DAT-03",
+    "IDE-02",
+    "TAL-02",
+    "TAL-03",
+    "INF-03"
+  ],
+  "ejes": [
+    {
+      "eje": "1. Gobernanza",
+      "indicadores": 3,
+      "puntuados": 3,
+      "sin_linea_base": 0,
+      "nivel": 1
+    },
+    {
+      "eje": "2. Servicios",
+      "indicadores": 4,
+      "puntuados": 3,
+      "sin_linea_base": 1,
+      "nivel": 1.3333333333333333
+    },
+    {
+      "eje": "3. Interoperabilidad",
+      "indicadores": 3,
+      "puntuados": 1,
+      "sin_linea_base": 2,
+      "nivel": 1
+    },
+    {
+      "eje": "4. Seguridad digital",
+      "indicadores": 3,
+      "puntuados": 3,
+      "sin_linea_base": 1,
+      "nivel": 1
+    },
+    {
+      "eje": "5. Datos",
+      "indicadores": 3,
+      "puntuados": 1,
+      "sin_linea_base": 2,
+      "nivel": 1
+    },
+    {
+      "eje": "6. Identidad digital",
+      "indicadores": 3,
+      "puntuados": 2,
+      "sin_linea_base": 1,
+      "nivel": 1.5
+    },
+    {
+      "eje": "7. Talento",
+      "indicadores": 3,
+      "puntuados": 1,
+      "sin_linea_base": 2,
+      "nivel": 1
+    },
+    {
+      "eje": "8. Infraestructura",
+      "indicadores": 3,
+      "puntuados": 2,
+      "sin_linea_base": 1,
+      "nivel": 1.5
+    }
+  ],
+  "nivel_global": 1.1666666666666667,
+  "posicionamiento": "Inicial — reactivo",
+  "metodo": "Media de puntajes conocidos dentro de cada eje; media de ocho ejes, sin ponderación por volumen.",
+  "limitacion": "Los niveles vacíos se excluyen; el resultado parcial no acredita la madurez de todos los indicadores.",
+  "proyectos": [
+    {
+      "id": "SER-04",
+      "eje": "2. Servicios",
+      "indicador": "Nivel medio de digitalización ponderado por volumen",
+      "proyecto": "P-SER-01: completar GD01 con volúmenes y recorridos validados; ejecutar GD02 y guardar su salida. Responsable propuesto: Persona 1."
+    },
+    {
+      "id": "INT-01",
+      "eje": "3. Interoperabilidad",
+      "indicador": "Número de integraciones activas verificadas",
+      "proyecto": "P-INT-01: inventariar interfaces con origen, destino, mecanismo, responsable y evidencia de ejecución. Responsable propuesto: Sistemas."
+    },
+    {
+      "id": "INT-02",
+      "eje": "3. Interoperabilidad",
+      "indicador": "Proporción de documentos solicitados que la organización ya posee",
+      "proyecto": "P-INT-02: registrar requisitos de dos recorridos y verificar documentos reutilizables; completar GD01 y calcular disponibles/solicitados. Responsable propuesto: Persona 1."
+    },
+    {
+      "id": "SEG-03",
+      "eje": "4. Seguridad digital",
+      "indicador": "Incidentes de seguridad registrados en 12 meses",
+      "proyecto": "P-SEG-01: habilitar registro de incidentes de seguridad con fecha, clasificación, cierre y revisión mensual. Responsable propuesto: Sistemas."
+    },
+    {
+      "id": "DAT-02",
+      "eje": "5. Datos",
+      "indicador": "Entidades de datos con dueño designado",
+      "proyecto": "P-DAT-01: elaborar inventario de entidades críticas y registrar dueño, custodio y aprobación; contar designaciones verificadas. Responsable propuesto: responsables de procesos y Sistemas."
+    },
+    {
+      "id": "DAT-03",
+      "eje": "5. Datos",
+      "indicador": "Decisiones de gestión sustentadas en datos verificables",
+      "proyecto": "P-DAT-02: definir universo y periodo de decisiones; registrar acta y dato utilizado; calcular decisiones con evidencia/decisiones revisadas. Responsable propuesto: Administración y Finanzas."
+    },
+    {
+      "id": "IDE-02",
+      "eje": "6. Identidad digital",
+      "indicador": "Usuarios con identidad única entre sistemas",
+      "proyecto": "P-IDE-01: conciliar cuentas activas por sistema con identificadores internos y responsables; calcular usuarios con identidad única/usuarios del alcance. Responsable propuesto: Sistemas y RR. HH."
+    },
+    {
+      "id": "TAL-02",
+      "eje": "7. Talento",
+      "indicador": "Personal capacitado en seguridad en los últimos 12 meses",
+      "proyecto": "P-TAL-01: consolidar asistencia con fecha, tema y personal del periodo; calcular personas únicas capacitadas/personal del alcance. Responsable propuesto: RR. HH. y Sistemas."
+    },
+    {
+      "id": "TAL-03",
+      "eje": "7. Talento",
+      "indicador": "Perfil de cultura digital validado",
+      "proyecto": "P-TAL-02: definir un instrumento de cultura, validarlo, establecer alcance y participación y reportar resultados y limitaciones. Responsable propuesto: RR. HH."
+    },
+    {
+      "id": "INF-03",
+      "eje": "8. Infraestructura",
+      "indicador": "Disponibilidad observada de los servicios críticos",
+      "proyecto": "P-INF-01: definir servicios críticos y ventanas; registrar indisponibilidad y monitoreo; calcular tiempo disponible/tiempo comprometido. Responsable propuesto: Sistemas."
+    }
+  ]
+}

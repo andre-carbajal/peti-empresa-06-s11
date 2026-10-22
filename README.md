@@ -7,7 +7,8 @@ Repositorio de trabajo para el diagnóstico de gobierno digital y el tablero de 
 ## Estado
 
 - **Persona 1 — catálogo:** catálogo actualizado con servicios, usuarios, sistemas conocidos y metas declaradas según las fuentes. Volúmenes, niveles 0–5, documentos reutilizables, canales por servicio y tratamiento de datos personales siguen pendientes de entrevista/evidencia.
-- **Personas 2 y 3:** planes de trabajo en [docs/plan-persona-2.md](docs/plan-persona-2.md) y [docs/plan-persona-3.md](docs/plan-persona-3.md).
+- **Persona 2 — ejes y madurez:** avance documental con 25 indicadores, diez proyectos para líneas base pendientes y radar. Resultado provisional: 1,17/5 con 16 indicadores puntuados. Ver [entrega y pendientes](docs/entrega-persona-2.md).
+- **Persona 3 — tablero:** plan de trabajo en [docs/plan-persona-3.md](docs/plan-persona-3.md).
 - No ejecutar el análisis del catálogo hasta completar y validar sus campos numéricos. Los campos pendientes están vacíos, nunca se deben interpretar como cero.
 - Las matrices 04_normativa/NO03_matriz_cumplimiento.csv y 04_normativa/MG03_capacidad.csv no estaban en el workspace al preparar este repo; son un requisito pendiente del tablero.
 
@@ -25,6 +26,8 @@ Integrar el trabajo mediante ramas feat/s11-persona-1-catalogo, feat/s11-persona
 
 - 06_gobierno_digital/GD01_catalogo_servicios.csv: borrador inicial del catálogo.
 - docs/preguntas-entrevista-persona-1.md: datos que deben solicitarse antes de calcular.
+- 06_gobierno_digital/GD03_ejes.csv y GD04_madurez.py: diagnóstico documental y cálculo de madurez; ejecución y dependencias en docs/entrega-persona-2.md.
+- 06_gobierno_digital/6.1_situacion_actual.md: avance de las secciones asignadas a Persona 2.
 - docs/plan-persona-2.md, docs/plan-persona-3.md: planes asignados para que el equipo los desarrolle.
 - graficos/: gráficos generados por los programas del taller.
 - evidencias/S11/: capturas y salidas versionadas.
