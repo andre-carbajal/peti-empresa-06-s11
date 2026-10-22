@@ -2,11 +2,11 @@
 
 Repositorio de trabajo para el diagnóstico de gobierno digital y el tablero de línea base de Distribuidora Andina del Sur S.A.C. El caso del curso es ficticio. Este repositorio es público por decisión del equipo: no agregar datos de una organización real, nombres de usuarios, registros de atenciones ni credenciales.
 
-**Confidencialidad:** la guía del taller clasifica el catálogo y sus volúmenes como confidenciales. El CSV público es solo un borrador del caso ficticio y deja sus métricas vacías; no incorporar respuestas de entrevista ni cifras hasta confirmar con el docente que pueden publicarse. Si se requiere versionar esos datos, cambiar el repositorio a privado antes de cargarlos.
+**Confidencialidad:** la guía del taller clasifica el catálogo y sus volúmenes como confidenciales. El repo público recoge únicamente hechos publicados del caso ficticio; mantiene vacíos los volúmenes y calificaciones 0–5. No cargar respuestas de entrevista, datos personales ni archivos crudos. Confirmar con el docente si se pueden versionar los resultados; si se requiere incluir información no publicada, cambiar el repositorio a privado antes.
 
 ## Estado
 
-- **Persona 1 — catálogo:** borrador de siete servicios preparado; volúmenes, niveles, documentos y canales por servicio esperan la entrevista simulada con el docente.
+- **Persona 1 — catálogo:** catálogo actualizado con servicios, usuarios, sistemas conocidos y metas declaradas según las fuentes. Volúmenes, niveles 0–5, documentos reutilizables, canales por servicio y tratamiento de datos personales siguen pendientes de entrevista/evidencia.
 - **Personas 2 y 3:** planes de trabajo en [docs/plan-persona-2.md](docs/plan-persona-2.md) y [docs/plan-persona-3.md](docs/plan-persona-3.md).
 - No ejecutar el análisis del catálogo hasta completar y validar sus campos numéricos. Los campos pendientes están vacíos, nunca se deben interpretar como cero.
 - Las matrices 04_normativa/NO03_matriz_cumplimiento.csv y 04_normativa/MG03_capacidad.csv no estaban en el workspace al preparar este repo; son un requisito pendiente del tablero.
