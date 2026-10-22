@@ -1,6 +1,6 @@
 # Entrega de Persona 2 — Sofxx7
 
-**Estado:** avance documental implementado y ejecutado. La validación con el docente y la incorporación de datos faltantes siguen pendientes.
+**Estado:** entrega documental de Persona 2 terminada con los insumos disponibles y aporte de Persona 1 integrado. Los datos no disponibles se declaran y tienen un proyecto de instrumentación. PR de integración: [#1](https://github.com/andre-carbajal/peti-empresa-06-s11/pull/1).
 
 ## Archivos para revisar
 
@@ -8,7 +8,7 @@
 |---|---|
 | [GD03_ejes.csv](../06_gobierno_digital/GD03_ejes.csv) | 25 indicadores en los ocho ejes; 15 líneas base disponibles y 10 pendientes, con evidencia, estado y proyecto. |
 | [GD04_madurez.py](../06_gobierno_digital/GD04_madurez.py) | Valida la matriz, calcula promedios sin imputar puntajes y genera las evidencias. |
-| [6.1_situacion_actual.md](../06_gobierno_digital/6.1_situacion_actual.md) | Redacción de 6.1.1 y 6.1.4–6.1.6. Las secciones 6.1.2, 6.1.3 y 6.1.7 están identificadas para integración del equipo. |
+| [6.1_situacion_actual.md](../06_gobierno_digital/6.1_situacion_actual.md) | Sección 6.1 consolidada: incluye la parte de Persona 2 y los aportes de catálogo, una sola vez y síntesis de Persona 1. |
 | [Criterios y evidencia](criterios-evidencia-persona-2.md) | Justificación del método, límites de las fuentes y preguntas para cerrar cada dato pendiente. |
 | [Radar](../graficos/GD_madurez.png) | Madurez provisional con cobertura por eje. |
 | [Salida GD04](../evidencias/S11/salidas/GD04_madurez.txt) | Cálculos, cobertura, limitaciones y diez proyectos de instrumentación. |
@@ -51,13 +51,26 @@ El programa también funciona desde 06_gobierno_digital porque resuelve rutas a 
 | 8. Indicadores sin línea base y proyectos | GD04_sin_linea_base.csv y GD04_madurez.txt | 10 proyectos propuestos; responsables por acordar. |
 | 9. Nivel de madurez | GD04_madurez.txt y GD04_resumen.json | Resultado documental provisional. |
 | 10. Radar | graficos/GD_madurez.png | Informa cobertura parcial por eje. |
-| 12. Sección 6.1 | 6.1_situacion_actual.md | Contiene la parte de Persona 2; falta integración del equipo. |
+| 12. Sección 6.1 | 6.1_situacion_actual.md | Consolidada con Persona 1; mantiene visibles los datos y validaciones pendientes. |
 
-Al publicar la rama, el informe debe usar la URL del PR y de cada artefacto. Las etiquetas v0.11 y taller-11 corresponden al cierre conjunto del taller.
+El informe debe enlazar el [PR #1](https://github.com/andre-carbajal/peti-empresa-06-s11/pull/1) y los artefactos de la rama feat/s11-persona-2-ejes. Las etiquetas v0.11 y taller-11 corresponden al cierre conjunto del taller.
 
-## Qué falta para cerrar tu parte
+## Entrega a Kiara
 
-1. Obtener o confirmar las diez líneas base con las evidencias indicadas; registrar las limitaciones que persistan.
-2. Validar con el docente los puntajes documentales y sus fechas de corte, especialmente los ejes con cobertura de 1/3.
-3. Incorporar los resultados de Persona 1 que afectan SER-04 e INT-02, ejecutar GD04 de nuevo y actualizar el texto si cambia la media.
-4. Integrar mediante PR hacia develop junto a la revisión del equipo.
+Kiara puede preparar PostgreSQL y Metabase y utilizar desde ahora GD03, el radar y los resúmenes. La rama feat/s11-persona-2-ejes incorpora el commit a00c6ff de André y la sección 6.1 consolidada.
+
+- [Matriz de ejes en GitHub](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/feat/s11-persona-2-ejes/06_gobierno_digital/GD03_ejes.csv)
+- [Promedios numéricos por eje](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/feat/s11-persona-2-ejes/evidencias/S11/salidas/GD04_resumen_ejes.csv)
+- [Indicadores sin línea base y proyectos](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/feat/s11-persona-2-ejes/evidencias/S11/salidas/GD04_sin_linea_base.csv)
+- [Sección 6.1 consolidada](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/feat/s11-persona-2-ejes/06_gobierno_digital/6.1_situacion_actual.md)
+
+Los gráficos de niveles del catálogo se pueden presentar como hipótesis provisional. La tarjeta de promedio ponderado y el cálculo de documentos reutilizables deben señalar datos pendientes hasta disponer de sus insumos. Las matrices normativas y de capacidad también siguen siendo dependencias del tablero.
+
+## Pendientes de validación del equipo
+
+1. Confirmar con el docente los volúmenes, documentos y recorridos de servicios.
+2. Validar los puntajes documentales y las fechas de corte; conservar las limitaciones que no puedan resolverse.
+3. Cuando lleguen los datos, actualizar SER-04 e INT-02 y regenerar GD04 si cambia su evaluación.
+4. Persona 3 prepara el tablero y el informe PDF; el equipo revisa la integración a develop y crea las etiquetas al cierre.
+
+Estos pendientes se entregan identificados y con su proyecto; no se inventan mediciones para completar casillas.

@@ -1,6 +1,6 @@
 # Plan de implementación — Persona 2: diagnóstico de ejes y madurez
 
-**Avance del 22/10/2026:** implementados la matriz, GD04, el radar y la redacción asignada. Ver [entrega y validaciones pendientes](entrega-persona-2.md). El resultado se mantiene como documental provisional.
+**Entrega del 22/10/2026:** terminados la matriz, GD04, el radar y la sección 6.1 consolidada con Persona 1. Ver [entrega e insumos para Kiara](entrega-persona-2.md). El diagnóstico conserva sus limitaciones documentadas.
 
 **Responsable:** Sofxx7  
 **Rama sugerida:** feat/s11-persona-2-ejes  

@@ -1,0 +1,15 @@
+Servicios catalogados        : 7
+AVISO: los niveles actuales y objetivos son provisionales; validar con recorridos.
+Nivel medio simple actual    : 3.00 de 5
+Servicios en nivel actual ≥ 4: 0 (0%)
+Servicios en nivel actual 0–1: 0
+Nivel medio simple objetivo  : 4.00 de 5
+Nivel medio ponderado        : PENDIENTE (faltan volúmenes anuales por servicio)
+
+=== PRINCIPIO DE UNA SOLA VEZ ===
+PENDIENTE: identificar documentos solicitados y cuáles ya posee la organización.
+
+=== BRECHA POR SERVICIO, PONDERADA POR VOLUMEN ===
+PENDIENTE: se requieren niveles y volúmenes anuales completos por servicio.
+
+Gráfico provisional          : C:\Users\Mi Equipo\OneDrive\Documentos\Cursos\PlaneamientoEstratégico\UNIDAD2\SEMANA11\peti-empresa-06-s11\graficos\GD_servicios.png
