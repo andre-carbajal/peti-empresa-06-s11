@@ -1,9 +1,9 @@
-"""Crea las preguntas Metabase sustentadas por GD01 y GD03.
+"""Crea seis preguntas Metabase sustentadas por GD01 y GD03.
 
 Requiere un Metabase inicializado y una fuente PostgreSQL ya conectada.
 Credenciales solo por METABASE_EMAIL y METABASE_PASSWORD; no se guardan.
-Las preguntas de cumplimiento y capacidad requieren NO03 y MG03 y no se crean
-con datos simulados.
+Las preguntas normativas y de capacidad requieren NO03 y MG03. Mientras esas
+matrices falten, dos preguntas adicionales muestran cobertura de GD03.
 """
 
 import csv
@@ -87,6 +87,17 @@ def validate_source_parity(rows_by_name):
         if actual[1:] != [source["Eje"], source["Indicador"], source["Línea base"],
                           source["Proyecto de instrumentación"]]:
             raise ValueError(f"Diferencia entre GD03 y Metabase: {identifier}")
+    for key, selected, predicate in (
+        (QUESTIONS[6][0], "con_linea_base", lambda row: row["Línea base"] != "No se mide"),
+        (QUESTIONS[7][0], "puntuados", lambda row: bool(row["Nivel del eje (1–5)"].strip())),
+    ):
+        expected = {}
+        for source in indicators:
+            counts = expected.setdefault(source["Eje"], [0, 0])
+            counts[0 if predicate(source) else 1] += 1
+        actual = {row[0]: [int(row[1]), int(row[2])] for row in rows_by_name[key]}
+        if actual != expected:
+            raise ValueError(f"Cobertura distinta entre GD03 y Metabase: {selected}")
     print("Paridad completa Metabase ↔ GD01/GD03/GD04: OK")
 
 
@@ -135,6 +146,18 @@ QUESTIONS = [
         "06 · Indicadores sin línea base", "table",
         "SELECT * FROM tablero_indicadores_sin_linea_base ORDER BY id",
         {}, "Indicadores de GD03 sin medida y con proyecto de instrumentación.",
+    ),
+    (
+        "07 · Cobertura de líneas base por eje", "bar",
+        "SELECT eje, con_linea_base, sin_linea_base FROM tablero_cobertura_linea_base ORDER BY eje",
+        {"graph.dimensions": ["eje"], "graph.metrics": ["con_linea_base", "sin_linea_base"]},
+        "Cobertura documental de los 25 indicadores de GD03; no representa cumplimiento normativo.",
+    ),
+    (
+        "08 · Cobertura de puntajes por eje", "bar",
+        "SELECT eje, puntuados, sin_puntaje FROM tablero_cobertura_puntajes ORDER BY eje",
+        {"graph.dimensions": ["eje"], "graph.metrics": ["puntuados", "sin_puntaje"]},
+        "Cobertura de los puntajes de madurez de GD03; no representa capacidad de procesos.",
     ),
 ]
 
@@ -194,7 +217,7 @@ def main():
     if dashboard is None:
         dashboard = api("POST", "/api/dashboard/", {
             "name": DASHBOARD_NAME,
-            "description": "Cuatro preguntas del plan verificables con GD01 y GD03; matrices y volúmenes pendientes.",
+            "description": "Seis preguntas verificables con GD01 y GD03; cumplimiento y capacidad pendientes de matrices.",
             "collection_id": collection_id,
         }, session=session)
     dashboard_id = dashboard["id"]
@@ -207,6 +230,8 @@ def main():
         (card_ids[3], 13, 12, 12, 5),
         (card_ids[4], 18, 0, 24, 9),
         (card_ids[5], 27, 0, 24, 10),
+        (card_ids[6], 37, 0, 24, 9),
+        (card_ids[7], 46, 0, 24, 9),
     ]
     dashcards = [
         {"id": existing_dashcards.get(card_id, -index - 1), "card_id": card_id,
@@ -218,7 +243,7 @@ def main():
     verified = api("GET", f"/api/dashboard/{dashboard_id}", session=session)
     if len(verified.get("dashcards", [])) != len(layout):
         raise RuntimeError("El tablero no contiene todas las tarjetas previstas.")
-    print(f"Tablero parcial: {BASE}/dashboard/{dashboard_id}; 6 tarjetas en 4 preguntas del plan")
+    print(f"Tablero: {BASE}/dashboard/{dashboard_id}; 8 tarjetas, 6 preguntas distintas sustentadas")
 
 
 if __name__ == "__main__":

@@ -4,5 +4,7 @@
 02b · Volúmenes pendientes: id 40; 1 fila(s)
 03 · Madurez provisional por eje: id 41; 8 fila(s)
 06 · Indicadores sin línea base: id 42; 10 fila(s)
+07 · Cobertura de líneas base por eje: id 44; 8 fila(s)
+08 · Cobertura de puntajes por eje: id 45; 8 fila(s)
 Paridad completa Metabase ↔ GD01/GD03/GD04: OK
-Tablero parcial: http://127.0.0.1:3001/dashboard/2; 6 tarjetas en 4 preguntas del plan
+Tablero: http://127.0.0.1:3001/dashboard/2; 8 tarjetas, 6 preguntas distintas sustentadas

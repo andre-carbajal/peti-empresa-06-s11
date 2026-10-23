@@ -4,16 +4,16 @@
 **Rama de trabajo:** main; cambios directos del equipo.
 **Fuente principal:** [Guía del taller, pasos C–F](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/3-TALLER.md).
 
-## Avance verificado al 22/10/2026
+## Avance verificado al 23/10/2026
 
 - Integrados en `main` los aportes de Personas 1 y 2 y la preparación de Persona 3.
 - Compose validado para puertos locales 5433 y 3001; GD05 valida los CSV antes de cargar y ofrece `--check` sin PostgreSQL.
 - La validación de fuentes confirma siete servicios, 25 indicadores, diez sin línea base y paridad de los ocho promedios con GD04. Los 21 tests del repositorio pasan. GD05 rechaza columnas reordenadas o valores no finitos y elimina tablas de fuentes ausentes para no conservar datos obsoletos.
-- Cuatro preguntas del plan ejecutadas en Metabase v0.52.12 con [capturas verificadas](../evidencias/S11/salidas/GD06_metabase_validacion.txt); el tablero parcial contiene seis tarjetas, incluidas dos auxiliares para el promedio simple y los volúmenes pendientes. Faltan las visualizaciones de cumplimiento y capacidad. La matriz de 13 resultados está en [informe-taller-s11-borrador.md](informe-taller-s11-borrador.md).
+- Seis preguntas distintas ejecutadas en Metabase v0.52.12 con [capturas verificadas](../evidencias/S11/salidas/GD06_metabase_validacion.txt): cuatro del plan original y dos adicionales sobre cobertura de GD03. El tablero contiene ocho tarjetas, incluidas dos auxiliares. Faltan las visualizaciones específicas de cumplimiento y capacidad. La [auditoría de las tres personas](auditoria-integral-s11.md) y la matriz de 13 resultados están disponibles.
 - GD06 cotejó fila por fila los resultados de Metabase con GD01/GD03/GD04. Las [tres comprobaciones del Paso E](../evidencias/S11/salidas/S11_validacion_paso_e.md) están documentadas: estructura de evidencia de ocho ejes comprobada; dos recorridos y «una sola vez» sin datos suficientes.
 - PostgreSQL 16 se inició temporalmente sin Docker en localhost y GD05 cargó las dos fuentes presentes: siete servicios y 25 indicadores; las vistas devolvieron diez sin línea base y ponderado NULL. Ver [validación SQL](../evidencias/S11/salidas/GD05_postgres_validacion.txt).
-- Pendientes de ejecución: Docker no ofrece motor accesible en esta sesión; faltan NO03, MG03 y siete volúmenes anuales. Sin ello no hay cuatro tablas cargadas ni seis visualizaciones distintas. Las cuatro capturas existentes sí corresponden a preguntas reales.
-- Pendiente de entrega: la plantilla aportada por el usuario ya contiene nombres y códigos; sigue sin confirmarse el número de grupo. Se generó un PDF local con resultados parciales, pero el PDF final y las etiquetas requieren cerrar el tablero y las evidencias.
+- Pendientes de ejecución: Docker no ofrece motor accesible en esta sesión; faltan NO03, MG03 y siete volúmenes anuales. Sin ello no hay cuatro tablas cargadas ni las dos visualizaciones específicas previstas. Las seis capturas actuales corresponden a preguntas reales, pero las adicionales no miden normativa ni capacidad.
+- Pendiente de entrega: la plantilla aportada por el usuario ya contiene nombres y códigos; sigue sin confirmarse el número de grupo. El PDF debe distinguir seis preguntas efectivas de las dos previstas sin fuente. Las limitaciones de Persona 1, de validación y de Compose permanecen explícitas.
 
 ## Objetivo y entregables
 

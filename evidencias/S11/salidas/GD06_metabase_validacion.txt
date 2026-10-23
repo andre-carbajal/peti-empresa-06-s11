@@ -20,3 +20,14 @@ muestran completas las preguntas verificadas. Las imágenes 04 y 05 no existen
 porque faltan las fuentes NO03 y MG03. No se afirma que el requisito de seis
 visualizaciones distintas esté cumplido. Tampoco se probó Docker Compose.
 Las URL http://127.0.0.1:3001/... solo funcionan en el equipo durante la sesión local.
+
+Ampliación verificada el 23/10/2026 con las mismas fuentes versionadas:
+- Se recargaron GD01 (7 filas) y GD03 (25 filas) en PostgreSQL 16 local.
+- GD05 creó las vistas de cobertura de línea base y de puntajes por eje.
+- Pregunta 07, barras agrupadas de líneas base disponibles/sin medir: 8 filas; tablero-07.png.
+- Pregunta 08, barras agrupadas de indicadores puntuados/sin puntaje: 8 filas; tablero-08.png.
+- Ambas preguntas se cotejaron eje por eje contra las 25 filas de GD03: OK.
+- GD06 verificó seis preguntas distintas (01, 02, 03, 06, 07 y 08) y ocho tarjetas; salida reproducible GD06_salida.txt.
+- Captura superior del tablero ampliado: tablero-seis-preguntas.png. Las seis preguntas tienen capturas individuales completas.
+- Las preguntas 04 y 05 del plan original siguen sin fuente NO03 y MG03. Las preguntas 07 y 08 son vistas complementarias de cobertura; no miden cumplimiento normativo ni capacidad de procesos.
+- Compose no se ejecutó: el servicio Docker Desktop no pudo iniciarse por falta de acceso en este equipo. PostgreSQL y Metabase sí corrieron en 127.0.0.1.

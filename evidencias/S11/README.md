@@ -18,8 +18,10 @@ Estas salidas documentan una ejecución local y una evaluación de las fuentes d
 
 - [Validación de fuentes GD05](salidas/GD05_validacion_fuentes.txt): siete servicios, siete volúmenes pendientes, 25 indicadores, diez sin línea base y paridad con el resumen de Persona 2.
 - [Validación PostgreSQL GD05](salidas/GD05_postgres_validacion.txt): carga real de dos tablas, conteos de vistas y promedio ponderado NULL. La ejecución fue local y sin Docker.
-- [Validación Metabase](salidas/GD06_metabase_validacion.txt): cuatro preguntas ejecutadas, seis tarjetas en el tablero parcial y límites de la prueba.
+- [Validación Metabase](salidas/GD06_metabase_validacion.txt): seis preguntas distintas ejecutadas, ocho tarjetas y límites de la prueba.
 - [Salida directa de GD06](salidas/GD06_salida.txt): identificadores de preguntas, filas por consulta y paridad completa con los CSV.
 - [Paso E del taller](salidas/S11_validacion_paso_e.md): tres comprobaciones, con dos recorridos seleccionados y pendientes, evidencia documental de los ejes y prueba «una sola vez» no calculable.
-- Capturas reales de Metabase: [servicios](tablero-01.png), [ponderado y simple](tablero-02.png), [ejes](tablero-03.png), [indicadores sin línea base](tablero-06.png) y [vista superior del tablero parcial](tablero-parcial.png). Las preguntas 4 y 5 no tienen fuentes ni capturas.
+- Capturas reales de Metabase: [servicios](tablero-01.png), [ponderado y simple](tablero-02.png), [madurez por eje](tablero-03.png), [indicadores sin línea base](tablero-06.png), [cobertura de líneas base](tablero-07.png), [cobertura de puntajes](tablero-08.png) y [vista superior del tablero ampliado](tablero-seis-preguntas.png). Las preguntas 4 y 5 no tienen fuentes ni capturas.
 - [Guía del tablero y estado del entorno](../../docs/tablero-persona-3.md): procedimiento de reproducción y comprobación de Docker.
+
+Las preguntas 07 y 08 se construyeron con GD03 y se cotejaron contra sus 25 filas. No sustituyen las preguntas 04 y 05 de cumplimiento y capacidad.

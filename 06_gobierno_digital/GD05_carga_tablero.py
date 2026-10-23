@@ -130,6 +130,16 @@ def make_views(conn):
             SELECT col_00 AS id, col_01 AS eje, col_02 AS indicador,
               col_03 AS linea_base, col_09 AS proyecto_de_instrumentacion
             FROM ejes_gd WHERE col_03 = 'No se mide'""")
+        cur.execute("""CREATE OR REPLACE VIEW tablero_cobertura_linea_base AS
+            SELECT col_01 AS eje,
+              count(*) FILTER (WHERE col_03 <> 'No se mide') AS con_linea_base,
+              count(*) FILTER (WHERE col_03 = 'No se mide') AS sin_linea_base
+            FROM ejes_gd GROUP BY col_01""")
+        cur.execute("""CREATE OR REPLACE VIEW tablero_cobertura_puntajes AS
+            SELECT col_01 AS eje,
+              count(*) FILTER (WHERE NULLIF(trim(col_06), '') IS NOT NULL) AS puntuados,
+              count(*) FILTER (WHERE NULLIF(trim(col_06), '') IS NULL) AS sin_puntaje
+            FROM ejes_gd GROUP BY col_01""")
 
 
 def audit(prepared):
