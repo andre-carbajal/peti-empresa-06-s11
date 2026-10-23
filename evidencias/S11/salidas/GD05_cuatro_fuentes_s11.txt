@@ -1,0 +1,16 @@
+Servicios: 7; volúmenes pendientes: 7
+Promedio simple provisional: 3.00
+Indicadores: 25; sin línea base: 10; puntuados: 16
+Criterios S11: 17; evaluación documental, sin dictamen jurídico
+Procesos con capacidad estimada: 8; pendiente de validación
+Paridad con GD04_resumen.json: OK
+servicios: 7 filas de 06_gobierno_digital\GD01_catalogo_servicios.csv
+ejes_gd: 25 filas de 06_gobierno_digital\GD03_ejes.csv
+cumplimiento: 17 filas de 04_normativa\NO03_matriz_cumplimiento.csv
+capacidad: 8 filas de 04_normativa\MG03_capacidad.csv
+servicios: 7 filas
+ejes_gd: 25 filas
+tablero_indicadores_sin_linea_base: 10 filas
+tablero_niveles: (Decimal('3.00'), None, 7, 7)
+tablero_controles_s11: [('Brecha documentada', 15), ('Cobertura parcial', 2)]
+tablero_capacidad_s11 (filas, actual min/max, objetivo min/max): (8, 1, 2, 3, 3)

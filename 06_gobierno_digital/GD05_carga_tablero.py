@@ -21,6 +21,8 @@ SOURCES = {
 REQUIRED = {
     "servicios": ["id", "Servicio", "Volumen anual", "Nivel actual (0–5)", "Nivel objetivo"],
     "ejes_gd": ["ID", "Eje", "Indicador", "Línea base", "Nivel del eje (1–5)", "Proyecto de instrumentación"],
+    "cumplimiento": ["ID", "Criterio de control", "Tipo", "Estado de verificación", "Hecho documentado", "Fuente S11", "Acción propuesta"],
+    "capacidad": ["ID", "Proceso", "Capacidad actual (1-5)", "Capacidad objetivo (1-5)", "Estado de evaluación", "Fundamento del nivel actual", "Fuente S11", "Justificación del objetivo"],
 }
 VIEW_POSITIONS = {
     "servicios": {
@@ -31,6 +33,8 @@ VIEW_POSITIONS = {
         "ID": 0, "Eje": 1, "Indicador": 2, "Línea base": 3,
         "Nivel del eje (1–5)": 6, "Proyecto de instrumentación": 9,
     },
+    "cumplimiento": {"ID": 0, "Estado de verificación": 3},
+    "capacidad": {"ID": 0, "Proceso": 1, "Capacidad actual (1-5)": 2, "Capacidad objetivo (1-5)": 3},
 }
 
 
@@ -73,6 +77,18 @@ def validate(table, headers, rows):
                 raise ValueError(f"{row['ID']}: nivel de eje inválido")
             if row["Línea base"] == "No se mide" and not (row["Proyecto de instrumentación"] or "").strip():
                 raise ValueError(f"{row['ID']}: falta proyecto de instrumentación")
+    if table == "cumplimiento":
+        for row in rows:
+            if row["Estado de verificación"] not in {"Brecha documentada", "Cobertura parcial", "Por verificar"}:
+                raise ValueError(f"{row['ID']}: estado de verificación inválido")
+            if not row["Fuente S11"].strip():
+                raise ValueError(f"{row['ID']}: falta fuente S11")
+    if table == "capacidad":
+        for row in rows:
+            if row["Capacidad actual (1-5)"] not in {"1", "2", "3", "4", "5"} or row["Capacidad objetivo (1-5)"] not in {"1", "2", "3", "4", "5"}:
+                raise ValueError(f"{row['ID']}: capacidad fuera de escala")
+            if row["Estado de evaluación"] != "Estimación documental":
+                raise ValueError(f"{row['ID']}: la evaluación S11 debe identificarse como estimación documental")
 
 
 def load_table(conn, table, headers, rows):
@@ -103,7 +119,7 @@ def load_table(conn, table, headers, rows):
     return len(rows)
 
 
-def make_views(conn):
+def make_views(conn, prepared):
     with conn.cursor() as cur:
         cur.execute("""CREATE OR REPLACE VIEW tablero_servicios AS
             SELECT col_00 AS id, col_01 AS servicio,
@@ -140,6 +156,16 @@ def make_views(conn):
               count(*) FILTER (WHERE NULLIF(trim(col_06), '') IS NOT NULL) AS puntuados,
               count(*) FILTER (WHERE NULLIF(trim(col_06), '') IS NULL) AS sin_puntaje
             FROM ejes_gd GROUP BY col_01""")
+        if "cumplimiento" in prepared:
+            cur.execute("""CREATE OR REPLACE VIEW tablero_controles_s11 AS
+                SELECT col_03 AS estado_de_verificacion, count(*) AS criterios
+                FROM cumplimiento GROUP BY col_03""")
+        if "capacidad" in prepared:
+            cur.execute("""CREATE OR REPLACE VIEW tablero_capacidad_s11 AS
+                SELECT col_00 AS id, col_01 AS proceso,
+                  col_02::integer AS capacidad_actual_documental,
+                  col_03::integer AS capacidad_objetivo_propuesta
+                FROM capacidad""")
 
 
 def audit(prepared):
@@ -167,6 +193,10 @@ def audit(prepared):
     print(f"Servicios: {len(services)}; volúmenes pendientes: {volumes_missing}")
     print(f"Promedio simple provisional: {sum(levels) / len(levels):.2f}" if levels else "Promedio simple: pendiente")
     print(f"Indicadores: {len(ejes)}; sin línea base: {unmeasured}; puntuados: {sum(map(len, by_axis.values()))}")
+    if "cumplimiento" in prepared:
+        print(f"Criterios S11: {len(prepared['cumplimiento'][1])}; evaluación documental, sin dictamen jurídico")
+    if "capacidad" in prepared:
+        print(f"Procesos con capacidad estimada: {len(prepared['capacidad'][1])}; pendiente de validación")
     print("Paridad con GD04_resumen.json: OK" if summary_path.exists() else "Paridad con GD04: sin archivo de referencia")
 
 
@@ -204,7 +234,7 @@ def main():
                 cur.execute(sql.SQL("DROP TABLE IF EXISTS {} CASCADE").format(sql.Identifier(table)))
                 cur.execute("DELETE FROM tablero_columnas WHERE tabla = %s", (table,))
         if "servicios" in prepared and "ejes_gd" in prepared:
-            make_views(conn)
+            make_views(conn, prepared)
         conn.commit()
 
 

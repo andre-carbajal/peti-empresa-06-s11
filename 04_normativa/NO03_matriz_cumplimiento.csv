@@ -1,0 +1,18 @@
+ID,Criterio de control,Tipo,Estado de verificación,Hecho documentado,Fuente S11,Acción propuesta
+NO03-01,Comité de TI con reuniones registradas,Gobierno interno,Brecha documentada,El comité existe en el papel y no se reunió en el último año,FICHA.md §B,Convocar el comité y conservar actas
+NO03-02,PETI vigente,Gobierno interno,Brecha documentada,Nunca se ha formulado un PETI,FICHA.md §E,Aprobar el PETI y asignar seguimiento
+NO03-03,Política de seguridad difundida y revisada,Seguridad interna,Brecha documentada,La política de 2022 no se difundió ni revisó,FICHA.md §§B y E,Revisar aprobar y difundir la política
+NO03-04,Plan de continuidad aprobado,Continuidad interna,Brecha documentada,No existe plan de continuidad; el BIA se describe como borrador incompleto,FICHA.md §E,Completar el BIA y aprobar el plan
+NO03-05,Catálogo de servicios con responsable designado,Gestión de servicios,Brecha documentada,Ninguno de los siete servicios tiene dueño designado,mesa-de-servicio-y-sla.md §3,Designar dueños y aprobar el catálogo
+NO03-06,Registro de incidentes de seguridad,Seguridad interna,Brecha documentada,La ficha indica que no se registran incidentes de seguridad,FICHA.md §F,Definir registro clasificación y revisión periódica
+NO03-07,Restauración completa probada,Continuidad interna,Brecha documentada,Los respaldos van a disco local y nunca se probó una restauración completa,FICHA.md §F,Ejecutar y documentar una prueba de restauración
+NO03-08,Inventario de activos de TI actualizado,Gestión de activos,Brecha documentada,La hoja de inventario fue actualizada por última vez hace dos años,FICHA.md §F,Actualizar y conciliar el inventario
+NO03-09,Política de contraseñas escrita,Seguridad interna,Brecha documentada,No hay política escrita y el sistema principal exige seis caracteres como mínimo,FICHA.md §F,Definir política y revisar configuración
+NO03-10,Segundo factor en sistemas críticos,Seguridad interna,Cobertura parcial,El segundo factor solo se usa en correo corporativo,FICHA.md §F,Inventariar sistemas críticos y definir alcance de MFA
+NO03-11,Contratos de proveedores vigentes,Gestión de proveedores,Brecha documentada,Dos de cinco contratos de TI están vencidos mientras continúa el servicio,FICHA.md §F,Revisar y regularizar los contratos
+NO03-12,Cambios en producción autorizados y registrados,Gestión de cambios,Brecha documentada,La ficha declara cambios directos sin registro ni aprobación,FICHA.md §F,Implantar autorización registro prueba y retorno
+NO03-13,Segregación de registro y aprobación de compras,Control interno,Brecha documentada,Un mismo usuario registraba y aprobaba compras fraccionadas bajo S/ 5000,FICHA.md §G,Separar perfiles y revisar operaciones afectadas
+NO03-14,Conciliación sistemática del inventario,Control interno,Brecha documentada,La diferencia promedio declarada es 4.7 % y el riesgo no se ha tratado,FICHA.md §§C y H,Conciliar inventarios y documentar diferencias
+NO03-15,Mantenimiento y pruebas de seguridad del portal,Seguridad interna,Brecha documentada,El portal de clientes no tiene soporte vigente y el riesgo conocido no se trató,FICHA.md §§C y H,Asignar responsable y plan de mantenimiento y pruebas
+NO03-16,Registro completo de atenciones,Gestión de servicios,Cobertura parcial,Hay 1929 registros pero se atiende más de lo anotado; 595 carecen de tipo,mesa-de-servicio-y-sla.md §§2 y 5,Registrar toda interacción y completar clasificación
+NO03-17,Metas de servicio acordadas medidas y reportadas,Gestión de servicios,Brecha documentada,Las metas declaradas no están firmadas ni reportadas,mesa-de-servicio-y-sla.md §4,Formalizar y medir acuerdos de servicio

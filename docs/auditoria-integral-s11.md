@@ -26,13 +26,13 @@ Se contrastaron los seis pasos de [su plan](plan-persona-2.md) con la [entrega](
 | 5. Ejecutar GD04, radar y redactar PETI | Hecho con reservas | [Salida](../evidencias/S11/salidas/GD04_madurez.txt), [radar](../graficos/GD_madurez.png) y [sección 6.1](../06_gobierno_digital/6.1_situacion_actual.md): 1,17/5 provisional, cobertura 16/25. |
 | 6. Revisar y publicar en main | Hecho | Archivos integrados en `main`; pruebas automáticas del cálculo presentes. Falta validación operativa de controles con responsables. |
 
-`NO03_matriz_cumplimiento.csv` y `MG03_capacidad.csv` **no figuran entre los entregables asignados a Persona 2 en su plan S11**. Son insumos de etapas previas indicados en el Paso C del taller. Tampoco aparecen en `main` ni en las ramas remotas actuales. GD03 describe algunos controles y brechas, pero no enumera obligaciones normativas verificadas ni capacidad actual y objetivo de procesos; convertirlo en esas matrices produciría una evaluación sin sustento.
+`NO03_matriz_cumplimiento.csv` y `MG03_capacidad.csv` **no figuran entre los entregables asignados a Persona 2 en su plan S11**. Son insumos de etapas previas indicados en el Paso C del taller. El equipo creó [registros documentales S11](matrices-s11-empresa-06.md) con otros alcances: criterios operativos observados y capacidad de procesos de TI estimada. No equivalen a las matrices previas validadas.
 
 ### Alcance de los recursos de Semana 11
 
 La [carpeta de Empresa 06 de Semana 11](https://github.com/OscarJimenezFlores/PETI/tree/main/SEMANA-11/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur) contiene `FICHA.md`, `mesa-de-servicio-y-sla.md` y `cuestionario-diagnostico.md`. La sección I de la ficha enumera siete CSV en `datos/`, pero esos archivos no están publicados en dicha carpeta. La [guía S11](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/3-TALLER.md) indica que los volúmenes anuales faltantes se piden en la entrevista simulada con el docente. Los 1 929 registros globales de mesa no proporcionan el volumen de cada servicio.
 
-La guía usa NO03 y MG03 como insumos previos para el Paso C, pero no los entrega entre los recursos de Semana 11. El repositorio del equipo tampoco contiene `04_normativa/`. Por ello, las visualizaciones de cumplimiento y capacidad siguen sin base verificable. Esta auditoría se limita a Semana 11 y a los archivos ya versionados por el equipo.
+La guía usa NO03 y MG03 como insumos previos para el Paso C, pero no los entrega entre los recursos de Semana 11. La carpeta `04_normativa/` creada por el equipo permite consultar **brechas documentadas y estimaciones propuestas**, sin afirmar cumplimiento legal o capacidad validada. Esta auditoría se limita a Semana 11 y a los archivos ya versionados por el equipo.
 
 ## Persona 3 — base, tablero e informe
 
@@ -41,11 +41,11 @@ Se contrastaron los seis pasos de [su plan](plan-persona-3.md) con las salidas y
 | Paso del plan | Estado | Evidencia y límite |
 |---|---|---|
 | 1. Desplegar PostgreSQL y Metabase en localhost | Parcial | PostgreSQL 16 y Metabase v0.52.12 se ejecutaron en `127.0.0.1`, con [validación SQL](../evidencias/S11/salidas/GD05_postgres_validacion.txt). `compose.yaml` existe, pero el servicio Docker Desktop no puede iniciarse en este equipo por permisos; Compose no fue probado. |
-| 2. Cargar cuatro CSV | Parcial | [GD05](../06_gobierno_digital/GD05_carga_tablero.py) cargó y comprobó GD01 y GD03: 7 y 25 filas. NO03 y MG03 no existen; no hay cuatro tablas fuente. |
-| 3. Construir preguntas Metabase | Parcial respecto al contenido previsto | [GD06](../06_gobierno_digital/GD06_crea_metabase.py) y [salida](../evidencias/S11/salidas/GD06_salida.txt) verifican seis preguntas distintas con datos reales: 01, 02, 03, 06, 07 y 08. Las dos últimas miden cobertura de línea base y de puntajes. No sustituyen el anillo normativo 04 ni las barras de capacidad 05. |
+| 2. Cargar cuatro CSV | Hecho para registros documentales | [GD05](../06_gobierno_digital/GD05_carga_tablero.py) validó y cargó en PostgreSQL local los cuatro CSV: 7 servicios, 25 indicadores, 17 criterios y ocho procesos. [Salida SQL](../evidencias/S11/salidas/GD05_cuatro_fuentes_s11.txt). NO03 y MG03 aún necesitan validación con responsables. |
+| 3. Construir preguntas Metabase | Parcial respecto al contenido previsto | [GD06](../06_gobierno_digital/GD06_crea_metabase.py) conserva seis preguntas verificadas: 01, 02, 03, 06, 07 y 08. Las preguntas 04 y 05 quedaron implementadas para los registros documentales nuevos, pero aún no se ejecutaron ni capturaron. No representan un dictamen legal ni capacidad validada. |
 | 4. Guardar capturas y salidas | Hecho para seis preguntas | [Capturas](../evidencias/S11/README.md) 01, 02, 03, 06, 07 y 08; el script coteja las filas con GD01, GD03 y GD04. |
 | 5. Integrar informe de la plantilla | Parcial | Existe PDF de trabajo con 13 resultados y enlaces; faltan número de grupo y las comprobaciones dependientes de fuente. La plantilla lleva los nombres y códigos aportados por el equipo. |
-| 6. Validar valores y publicar | Hecho para datos disponibles | Paridad de Metabase y fuentes: OK; 21 pruebas automáticas: OK. El cierre de etiquetas debe referirse al estado documental realmente entregado. |
+| 6. Validar valores y publicar | Parcial | Paridad previa de seis preguntas: OK; la validación de los cuatro CSV y 22 pruebas automáticas pasan. Falta ejecutar en Metabase las preguntas 04 y 05 y cotejar sus resultados. |
 
 ## Comprobaciones del Paso E y cierre
 
@@ -55,4 +55,4 @@ Se contrastaron los seis pasos de [su plan](plan-persona-3.md) con las salidas y
 | Evidencia de cada eje evaluado | Estructura de 16 puntajes y ocho ejes cotejada; controles operativos aún sin observación. |
 | «Una sola vez» con documentos concretos | Sin denominador ni documentos identificados; no calculable. |
 
-**Conclusión de aceptación:** el expediente permite entregar un diagnóstico documental con seis visualizaciones respaldadas y limitaciones explícitas. El plan original del taller no está cumplido íntegramente: las filas 1–4 de la lista de comprobación, los contenidos normativo y de capacidad del tablero, dos validaciones del Paso E y el despliegue Compose dependen de fuentes o acceso que el repositorio actual no proporciona. Una etiqueta o un PDF no convierten estos resultados en mediciones verificadas.
+**Conclusión de aceptación:** el expediente permite entregar un diagnóstico documental con seis visualizaciones ejecutadas y dos preguntas nuevas preparadas. El plan original del taller no está cumplido íntegramente: las filas 1–4 de la lista de comprobación, la validación operativa de las matrices, las capturas 04 y 05, dos comprobaciones del Paso E y el despliegue Compose siguen pendientes. Una etiqueta o un PDF no convierten las estimaciones en mediciones verificadas.

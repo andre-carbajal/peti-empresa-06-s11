@@ -1,9 +1,9 @@
-"""Crea seis preguntas Metabase sustentadas por GD01 y GD03.
+"""Crea preguntas Metabase sustentadas por los cuatro CSV disponibles.
 
 Requiere un Metabase inicializado y una fuente PostgreSQL ya conectada.
 Credenciales solo por METABASE_EMAIL y METABASE_PASSWORD; no se guardan.
-Las preguntas normativas y de capacidad requieren NO03 y MG03. Mientras esas
-matrices falten, dos preguntas adicionales muestran cobertura de GD03.
+NO03 registra controles descritos en S11, sin dictamen jurídico; MG03 contiene
+estimaciones documentales, no una medición validada de capacidad.
 """
 
 import csv
@@ -98,6 +98,23 @@ def validate_source_parity(rows_by_name):
         actual = {row[0]: [int(row[1]), int(row[2])] for row in rows_by_name[key]}
         if actual != expected:
             raise ValueError(f"Cobertura distinta entre GD03 y Metabase: {selected}")
+    controls = csv_rows("04_normativa/NO03_matriz_cumplimiento.csv")
+    expected_controls = {}
+    for source in controls:
+        state = source["Estado de verificación"]
+        expected_controls[state] = expected_controls.get(state, 0) + 1
+    actual_controls = {row[0]: int(row[1]) for row in rows_by_name[QUESTIONS[8][0]]}
+    if actual_controls != expected_controls:
+        raise ValueError("El recuento de controles S11 no coincide con NO03.")
+    capacity = csv_rows("04_normativa/MG03_capacidad.csv")
+    expected_capacity = {
+        row["ID"]: [row["Proceso"], int(row["Capacidad actual (1-5)"]),
+                    int(row["Capacidad objetivo (1-5)"])] for row in capacity
+    }
+    actual_capacity = {row[0]: [row[1], int(row[2]), int(row[3])]
+                       for row in rows_by_name[QUESTIONS[9][0]]}
+    if actual_capacity != expected_capacity:
+        raise ValueError("La capacidad documental no coincide con MG03.")
     print("Paridad completa Metabase ↔ GD01/GD03/GD04: OK")
 
 
@@ -159,6 +176,18 @@ QUESTIONS = [
         {"graph.dimensions": ["eje"], "graph.metrics": ["puntuados", "sin_puntaje"]},
         "Cobertura de los puntajes de madurez de GD03; no representa capacidad de procesos.",
     ),
+    (
+        "04 · Estado de controles descritos en S11", "pie",
+        "SELECT estado_de_verificacion, criterios FROM tablero_controles_s11 ORDER BY estado_de_verificacion",
+        {"graph.dimensions": ["estado_de_verificacion"], "graph.metrics": ["criterios"]},
+        "Recuento de brechas y coberturas parciales de NO03; no es dictamen de cumplimiento legal.",
+    ),
+    (
+        "05 · Capacidad documental actual y objetivo propuesto", "bar",
+        "SELECT id, proceso, capacidad_actual_documental, capacidad_objetivo_propuesta FROM tablero_capacidad_s11 ORDER BY id",
+        {"graph.dimensions": ["proceso"], "graph.metrics": ["capacidad_actual_documental", "capacidad_objetivo_propuesta"]},
+        "Estimación del equipo con fuentes S11; requiere validación con responsables.",
+    ),
 ]
 
 
@@ -217,7 +246,7 @@ def main():
     if dashboard is None:
         dashboard = api("POST", "/api/dashboard/", {
             "name": DASHBOARD_NAME,
-            "description": "Seis preguntas verificables con GD01 y GD03; cumplimiento y capacidad pendientes de matrices.",
+            "description": "Ocho preguntas distintas; controles y capacidad son evaluaciones documentales provisionales.",
             "collection_id": collection_id,
         }, session=session)
     dashboard_id = dashboard["id"]
@@ -232,6 +261,8 @@ def main():
         (card_ids[5], 27, 0, 24, 10),
         (card_ids[6], 37, 0, 24, 9),
         (card_ids[7], 46, 0, 24, 9),
+        (card_ids[8], 55, 0, 24, 9),
+        (card_ids[9], 64, 0, 24, 9),
     ]
     dashcards = [
         {"id": existing_dashcards.get(card_id, -index - 1), "card_id": card_id,

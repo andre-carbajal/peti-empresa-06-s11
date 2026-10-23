@@ -15,6 +15,8 @@
 - Pendientes de ejecución: Docker no ofrece motor accesible en esta sesión; faltan NO03, MG03 y siete volúmenes anuales. Sin ello no hay cuatro tablas cargadas ni las dos visualizaciones específicas previstas. Las seis capturas actuales corresponden a preguntas reales, pero las adicionales no miden normativa ni capacidad.
 - Pendiente de entrega: la plantilla aportada por el usuario ya contiene nombres y códigos; sigue sin confirmarse el número de grupo. El PDF debe distinguir seis preguntas efectivas de las dos previstas sin fuente. Las limitaciones de Persona 1, de validación y de Compose permanecen explícitas.
 
+**Actualización documental del 23/10/2026:** se crearon [NO03 y MG03 basados en S11](matrices-s11-empresa-06.md), se [cargaron los cuatro CSV en PostgreSQL local](../evidencias/S11/salidas/GD05_cuatro_fuentes_s11.txt) y quedaron implementadas las preguntas 04 y 05. Los puntos de avance anteriores describen el estado previo a esta actualización. Siguen pendientes la ejecución y captura de esas dos preguntas, la validación de las estimaciones con responsables y los datos de entrevista para GD01.
+
 ## Objetivo y entregables
 
 Desplegar PostgreSQL y Metabase solo en localhost; cargar los cuatro CSV definidos por el taller; construir al menos seis visualizaciones; archivar capturas/salidas en evidencias/S11/; y ensamblar el informe PDF con evidencias y enlaces.

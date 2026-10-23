@@ -45,6 +45,16 @@ class CargaTableroTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "falta proyecto"):
             GD05.validate("ejes_gd", headers, rows)
 
+    def test_matrices_s11_tienen_fuente_y_estimacion_explicita(self):
+        for table in ("cumplimiento", "capacidad"):
+            headers, rows = GD05.read_csv(GD05.SOURCES[table])
+            GD05.validate(table, headers, rows)
+            self.assertTrue(rows)
+        headers, rows = GD05.read_csv(GD05.SOURCES["capacidad"])
+        rows[0]["Estado de evaluación"] = "Validado"
+        with self.assertRaisesRegex(ValueError, "estimación documental"):
+            GD05.validate("capacidad", headers, rows)
+
 
 if __name__ == "__main__":
     unittest.main()
