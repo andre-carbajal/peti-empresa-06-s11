@@ -26,6 +26,18 @@ class CargaTableroTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "no es numérico"):
             GD05.validate("servicios", headers, rows)
 
+    def test_rechaza_columnas_reordenadas_que_alterarian_las_vistas(self):
+        headers, rows = GD05.read_csv(GD05.SOURCES["servicios"])
+        headers[3], headers[4] = headers[4], headers[3]
+        with self.assertRaisesRegex(ValueError, "columna 4"):
+            GD05.validate("servicios", headers, rows)
+
+    def test_rechaza_infinito_como_volumen(self):
+        headers, rows = GD05.read_csv(GD05.SOURCES["servicios"])
+        rows[0]["Volumen anual"] = "Infinity"
+        with self.assertRaisesRegex(ValueError, "fuera de rango"):
+            GD05.validate("servicios", headers, rows)
+
     def test_rechaza_indicador_no_medido_sin_proyecto(self):
         headers, rows = GD05.read_csv(GD05.SOURCES["ejes_gd"])
         row = next(row for row in rows if row["Línea base"] == "No se mide")

@@ -22,6 +22,16 @@ REQUIRED = {
     "servicios": ["id", "Servicio", "Volumen anual", "Nivel actual (0–5)", "Nivel objetivo"],
     "ejes_gd": ["ID", "Eje", "Indicador", "Línea base", "Nivel del eje (1–5)", "Proyecto de instrumentación"],
 }
+VIEW_POSITIONS = {
+    "servicios": {
+        "id": 0, "Servicio": 1, "Volumen anual": 3,
+        "Nivel actual (0–5)": 4, "Nivel objetivo": 11,
+    },
+    "ejes_gd": {
+        "ID": 0, "Eje": 1, "Indicador": 2, "Línea base": 3,
+        "Nivel del eje (1–5)": 6, "Proyecto de instrumentación": 9,
+    },
+}
 
 
 def read_csv(path):
@@ -39,6 +49,9 @@ def validate(table, headers, rows):
     missing = set(REQUIRED.get(table, ())) - set(headers)
     if missing:
         raise ValueError(f"{table}: faltan columnas {', '.join(sorted(missing))}")
+    for header, position in VIEW_POSITIONS.get(table, {}).items():
+        if len(headers) <= position or headers[position] != header:
+            raise ValueError(f"{table}: columna {position + 1} debe ser «{header}» para las vistas SQL")
     if not rows:
         raise ValueError(f"{table}: el archivo está vacío")
     if table == "servicios":
@@ -51,7 +64,7 @@ def validate(table, headers, rows):
                     number = Decimal(value)
                 except InvalidOperation as exc:
                     raise ValueError(f"{row['id']}: {field} no es numérico") from exc
-                if number != int(number) or number < 0 or (field != "Volumen anual" and number > 5):
+                if not number.is_finite() or number != number.to_integral_value() or number < 0 or (field != "Volumen anual" and number > 5):
                     raise ValueError(f"{row['id']}: {field} fuera de rango")
     if table == "ejes_gd":
         for row in rows:
@@ -167,6 +180,7 @@ def main():
     if args.check:
         return
     import psycopg
+    from psycopg import sql
 
     with psycopg.connect(database_url) as conn:
         with conn.cursor() as cur:
@@ -175,6 +189,10 @@ def main():
                 PRIMARY KEY (tabla, columna))""")
         for table, (headers, rows) in prepared.items():
             print(f"{table}: {load_table(conn, table, headers, rows)} filas de {SOURCES[table].relative_to(ROOT)}")
+        for table in SOURCES.keys() - prepared.keys():
+            with conn.cursor() as cur:
+                cur.execute(sql.SQL("DROP TABLE IF EXISTS {} CASCADE").format(sql.Identifier(table)))
+                cur.execute("DELETE FROM tablero_columnas WHERE tabla = %s", (table,))
         if "servicios" in prepared and "ejes_gd" in prepared:
             make_views(conn)
         conn.commit()
