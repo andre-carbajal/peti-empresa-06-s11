@@ -49,7 +49,7 @@ El caso es ficticio. El tablero se configura solo en `127.0.0.1`, no se versiona
 
 **Paso D. Redacción:** La [sección 6.1](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/6.1_situacion_actual.md) integra el catálogo, ocho ejes, indicadores pendientes, madurez y síntesis de brechas.
 
-**Paso E. Validación:** La evidencia documental permite verificar la justificación de los ejes. Los recorridos de dos servicios y la prueba de documentos concretos siguen pendientes de entrevista o simulación documentada con el docente; el caso publicado no proporciona esos datos.
+**Paso E. Validación:** Las [tres comprobaciones de la guía](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/evidencias/S11/salidas/S11_validacion_paso_e.md) se revisaron y documentaron. Se comprobó la estructura de evidencia de los ocho ejes: 16 puntajes con fuente/fecha y enlace, diez líneas base pendientes con proyecto. Los recorridos S-07 y S-06 y la prueba sobre documentos concretos no se pueden aprobar con el expediente disponible; quedan instrumentados y pendientes de simulación con el docente. GD06 cotejó fila por fila las preguntas disponibles de Metabase con GD01, GD03 y GD04.
 
 **Paso F. Registro:** Los artefactos se versionan en `main`. Las etiquetas `v0.11` y `taller-11` se crearán sobre el commit de entrega final, después de completar y revisar el informe y las evidencias.
 

@@ -12,6 +12,8 @@ Se ejecutó GD06_crea_metabase.py contra la fuente PostgreSQL local:
 - Pregunta 06, indicadores sin línea base: 10 filas. Captura tablero-06.png.
 - Dos tarjetas auxiliares muestran promedio simple 3 y siete volúmenes pendientes.
 - Tablero parcial: seis tarjetas para cuatro preguntas del plan. Captura tablero-parcial.png.
+- Segunda ejecución de GD06: comparación fila por fila de servicios y niveles con GD01, de promedios y volúmenes con GD01, de los ocho ejes con GD04_resumen_ejes.csv y de los diez indicadores sin línea base con GD03: OK.
+- Salida directa versionada: GD06_salida.txt.
 
 La captura del tablero muestra su parte superior; las cuatro capturas individuales
 muestran completas las preguntas verificadas. Las imágenes 04 y 05 no existen

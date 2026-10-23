@@ -19,7 +19,7 @@ Antes de iniciar la base puede ejecutarse `python 06_gobierno_digital/GD05_carga
 
 ## Seis preguntas
 
-Las preguntas 1, 2, 3 y 6 se crearon y ejecutaron en la colección `S11 · Línea base`. Las preguntas 4 y 5 siguen pendientes de sus matrices. [GD06_crea_metabase.py](../06_gobierno_digital/GD06_crea_metabase.py) recrea de forma idempotente las preguntas disponibles y el tablero parcial en un Metabase inicializado; requiere `METABASE_EMAIL`, `METABASE_PASSWORD` y una fuente PostgreSQL llamada `PETI Empresa 06 S11` (o configurar `METABASE_DATABASE_NAME`). El script no guarda credenciales. El [registro de validación](../evidencias/S11/salidas/GD06_metabase_validacion.txt) incluye los conteos y límites.
+Las preguntas 1, 2, 3 y 6 se crearon y ejecutaron en la colección `S11 · Línea base`. Las preguntas 4 y 5 siguen pendientes de sus matrices. [GD06_crea_metabase.py](../06_gobierno_digital/GD06_crea_metabase.py) recrea de forma idempotente las preguntas disponibles y el tablero parcial en un Metabase inicializado; requiere `METABASE_EMAIL`, `METABASE_PASSWORD` y una fuente PostgreSQL llamada `PETI Empresa 06 S11` (o configurar `METABASE_DATABASE_NAME`). El script no guarda credenciales y ahora coteja cada fila de los resultados con GD01/GD03/GD04, no solo los conteos. El [registro de validación](../evidencias/S11/salidas/GD06_metabase_validacion.txt) incluye los resultados y límites.
 
 | N.º | Visualización | Consulta | Estado |
 |---|---|---|---|

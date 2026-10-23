@@ -6,8 +6,11 @@ Las preguntas de cumplimiento y capacidad requieren NO03 y MG03 y no se crean
 con datos simulados.
 """
 
+import csv
 import json
 import os
+from decimal import Decimal, ROUND_HALF_UP
+from pathlib import Path
 from urllib.error import HTTPError
 from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
@@ -19,6 +22,72 @@ PASSWORD = os.environ.get("METABASE_PASSWORD")
 DATABASE_NAME = os.environ.get("METABASE_DATABASE_NAME", "PETI Empresa 06 S11")
 COLLECTION_NAME = "S11 · Línea base"
 DASHBOARD_NAME = "S11 · Línea base · datos disponibles"
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def csv_rows(path):
+    with (ROOT / path).open(encoding="utf-8-sig", newline="") as source:
+        return list(csv.DictReader(source))
+
+
+def as_decimal(value):
+    return None if value is None else Decimal(str(value))
+
+
+def rounded(value):
+    return value.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+
+
+def validate_source_parity(rows_by_name):
+    """Coteja filas efectivas de Metabase con los CSV versionados."""
+    services = csv_rows("06_gobierno_digital/GD01_catalogo_servicios.csv")
+    by_service = {row[0]: row for row in rows_by_name[QUESTIONS[0][0]]}
+    if len(by_service) != len(services):
+        raise ValueError("Metabase no muestra todos los servicios de GD01.")
+    for service in services:
+        actual = by_service.get(service["Servicio"])
+        if actual is None or as_decimal(actual[1]) != Decimal(service["Nivel actual (0–5)"]) \
+                or as_decimal(actual[2]) != Decimal(service["Nivel objetivo"]):
+            raise ValueError(f"Diferencia entre GD01 y Metabase: {service['Servicio']}")
+
+    level_rows = rows_by_name[QUESTIONS[1][0]]
+    if len(level_rows) != 1:
+        raise ValueError("La tarjeta de promedios debe devolver una sola fila.")
+    weighted, simple, missing = level_rows[0]
+    levels = [Decimal(row["Nivel actual (0–5)"]) for row in services]
+    volumes = [row["Volumen anual"].strip() for row in services]
+    expected_simple = rounded(sum(levels) / len(levels))
+    expected_missing = sum(not volume for volume in volumes)
+    expected_weighted = None
+    if not expected_missing:
+        weights = [Decimal(volume) for volume in volumes]
+        if sum(weights) > 0:
+            expected_weighted = rounded(sum(a * b for a, b in zip(levels, weights)) / sum(weights))
+    if as_decimal(simple) != expected_simple or int(missing) != expected_missing \
+            or as_decimal(weighted) != expected_weighted:
+        raise ValueError("Los promedios de Metabase no coinciden con GD01.")
+
+    ejes = csv_rows("evidencias/S11/salidas/GD04_resumen_ejes.csv")
+    by_axis = {row[0]: row for row in rows_by_name[QUESTIONS[4][0]]}
+    if len(by_axis) != len(ejes):
+        raise ValueError("Metabase no muestra los ocho ejes de GD04.")
+    for axis in ejes:
+        actual = by_axis.get(axis["eje"])
+        if actual is None or as_decimal(actual[1]) != rounded(Decimal(axis["nivel"])) \
+                or int(actual[2]) != int(axis["indicadores"]):
+            raise ValueError(f"Diferencia entre GD04 y Metabase: {axis['eje']}")
+
+    indicators = csv_rows("06_gobierno_digital/GD03_ejes.csv")
+    expected_unmeasured = {row["ID"]: row for row in indicators if row["Línea base"] == "No se mide"}
+    actual_unmeasured = {row[0]: row for row in rows_by_name[QUESTIONS[5][0]]}
+    if expected_unmeasured.keys() != actual_unmeasured.keys():
+        raise ValueError("Los indicadores sin línea base no coinciden con GD03.")
+    for identifier, source in expected_unmeasured.items():
+        actual = actual_unmeasured[identifier]
+        if actual[1:] != [source["Eje"], source["Indicador"], source["Línea base"],
+                          source["Proyecto de instrumentación"]]:
+            raise ValueError(f"Diferencia entre GD03 y Metabase: {identifier}")
+    print("Paridad completa Metabase ↔ GD01/GD03/GD04: OK")
 
 
 def api(method, path, payload=None, session=None):
@@ -94,6 +163,7 @@ def main():
     collection_id = collection["id"]
     existing_cards = api("GET", "/api/card/", session=session)
     card_ids = []
+    rows_by_name = {}
     for name, display, query, settings, description in QUESTIONS:
         payload = {
             "name": name, "description": description, "display": display,
@@ -115,6 +185,8 @@ def main():
             raise RuntimeError(f"Pregunta {card_id}: la consulta no terminó correctamente.")
         print(f"{name}: id {card_id}; {len(rows)} fila(s)")
         card_ids.append(card_id)
+        rows_by_name[name] = rows
+    validate_source_parity(rows_by_name)
 
     dashboards = api("GET", "/api/dashboard/", session=session)
     dashboard = next((item for item in dashboards

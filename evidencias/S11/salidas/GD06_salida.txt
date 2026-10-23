@@ -1,0 +1,8 @@
+01 · Nivel actual y objetivo por servicio: id 38; 7 fila(s)
+02 · Nivel ponderado y promedio simple: id 43; 1 fila(s)
+02a · Promedio simple provisional: id 39; 1 fila(s)
+02b · Volúmenes pendientes: id 40; 1 fila(s)
+03 · Madurez provisional por eje: id 41; 8 fila(s)
+06 · Indicadores sin línea base: id 42; 10 fila(s)
+Paridad completa Metabase ↔ GD01/GD03/GD04: OK
+Tablero parcial: http://127.0.0.1:3001/dashboard/2; 6 tarjetas en 4 preguntas del plan
