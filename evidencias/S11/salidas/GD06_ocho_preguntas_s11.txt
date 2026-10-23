@@ -1,0 +1,12 @@
+01 · Nivel actual y objetivo por servicio: id 38; 7 fila(s)
+02 · Nivel ponderado y promedio simple: id 43; 1 fila(s)
+02a · Promedio simple provisional: id 39; 1 fila(s)
+02b · Volúmenes pendientes: id 40; 1 fila(s)
+03 · Madurez provisional por eje: id 41; 8 fila(s)
+06 · Indicadores sin línea base: id 42; 10 fila(s)
+07 · Cobertura de líneas base por eje: id 44; 8 fila(s)
+08 · Cobertura de puntajes por eje: id 45; 8 fila(s)
+04 · Estado de controles descritos en S11: id 46; 2 fila(s)
+05 · Capacidad documental actual y objetivo propuesto: id 47; 16 fila(s)
+Paridad completa Metabase ↔ GD01/GD03/GD04/NO03/MG03: OK
+Tablero: http://127.0.0.1:3001/dashboard/2; 10 tarjetas, 8 preguntas distintas sustentadas

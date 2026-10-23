@@ -42,10 +42,10 @@ Se contrastaron los seis pasos de [su plan](plan-persona-3.md) con las salidas y
 |---|---|---|
 | 1. Desplegar PostgreSQL y Metabase en localhost | Parcial | PostgreSQL 16 y Metabase v0.52.12 se ejecutaron en `127.0.0.1`, con [validación SQL](../evidencias/S11/salidas/GD05_postgres_validacion.txt). `compose.yaml` existe, pero el servicio Docker Desktop no puede iniciarse en este equipo por permisos; Compose no fue probado. |
 | 2. Cargar cuatro CSV | Hecho para registros documentales | [GD05](../06_gobierno_digital/GD05_carga_tablero.py) validó y cargó en PostgreSQL local los cuatro CSV: 7 servicios, 25 indicadores, 17 criterios y ocho procesos. [Salida SQL](../evidencias/S11/salidas/GD05_cuatro_fuentes_s11.txt). NO03 y MG03 aún necesitan validación con responsables. |
-| 3. Construir preguntas Metabase | Parcial respecto al contenido previsto | [GD06](../06_gobierno_digital/GD06_crea_metabase.py) conserva seis preguntas verificadas: 01, 02, 03, 06, 07 y 08. Las preguntas 04 y 05 quedaron implementadas para los registros documentales nuevos, pero aún no se ejecutaron ni capturaron. No representan un dictamen legal ni capacidad validada. |
-| 4. Guardar capturas y salidas | Hecho para seis preguntas | [Capturas](../evidencias/S11/README.md) 01, 02, 03, 06, 07 y 08; el script coteja las filas con GD01, GD03 y GD04. |
+| 3. Construir preguntas Metabase | Hecho documental con reservas | [GD06](../06_gobierno_digital/GD06_crea_metabase.py) [ejecutó ocho preguntas](../evidencias/S11/salidas/GD06_ocho_preguntas_s11.txt). La 04 cuenta controles documentados y la 05 compara capacidad de TI estimada con objetivos propuestos. No representan dictamen legal ni capacidad validada. |
+| 4. Guardar capturas y salidas | Hecho | [Capturas](../evidencias/S11/README.md) 01–08 y tablero completo; cotejo de filas con GD01, GD03, NO03, MG03 y GD04. |
 | 5. Integrar informe de la plantilla | Parcial | Existe PDF de trabajo con 13 resultados y enlaces; faltan número de grupo y las comprobaciones dependientes de fuente. La plantilla lleva los nombres y códigos aportados por el equipo. |
-| 6. Validar valores y publicar | Parcial | Paridad previa de seis preguntas: OK; la validación de los cuatro CSV y 22 pruebas automáticas pasan. Falta ejecutar en Metabase las preguntas 04 y 05 y cotejar sus resultados. |
+| 6. Validar valores y publicar | Hecho documental con reservas | [Paridad de ocho preguntas](../evidencias/S11/salidas/GD06_ocho_preguntas_s11.txt): OK; validación de cuatro CSV y 22 pruebas automáticas: OK. Falta contrastar las estimaciones con responsables. |
 
 ## Comprobaciones del Paso E y cierre
 
@@ -55,4 +55,4 @@ Se contrastaron los seis pasos de [su plan](plan-persona-3.md) con las salidas y
 | Evidencia de cada eje evaluado | Estructura de 16 puntajes y ocho ejes cotejada; controles operativos aún sin observación. |
 | «Una sola vez» con documentos concretos | Sin denominador ni documentos identificados; no calculable. |
 
-**Conclusión de aceptación:** el expediente permite entregar un diagnóstico documental con seis visualizaciones ejecutadas y dos preguntas nuevas preparadas. El plan original del taller no está cumplido íntegramente: las filas 1–4 de la lista de comprobación, la validación operativa de las matrices, las capturas 04 y 05, dos comprobaciones del Paso E y el despliegue Compose siguen pendientes. Una etiqueta o un PDF no convierten las estimaciones en mediciones verificadas.
+**Conclusión de aceptación:** el expediente permite entregar un diagnóstico documental con ocho visualizaciones ejecutadas. El plan original del taller no está cumplido íntegramente: las filas 1–4 de la lista de comprobación, la validación operativa de las matrices, dos comprobaciones del Paso E y el despliegue Compose siguen pendientes. Una etiqueta o un PDF no convierten las estimaciones en mediciones verificadas.

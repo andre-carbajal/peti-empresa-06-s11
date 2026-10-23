@@ -20,8 +20,10 @@ Estas salidas documentan una ejecución local y una evaluación de las fuentes d
 - [Validación PostgreSQL GD05](salidas/GD05_postgres_validacion.txt): carga real de dos tablas, conteos de vistas y promedio ponderado NULL. La ejecución fue local y sin Docker.
 - [Validación Metabase](salidas/GD06_metabase_validacion.txt): seis preguntas distintas ejecutadas, ocho tarjetas y límites de la prueba.
 - [Salida directa de GD06](salidas/GD06_salida.txt): identificadores de preguntas, filas por consulta y paridad completa con los CSV.
+- [Carga de cuatro fuentes](salidas/GD05_cuatro_fuentes_s11.txt): conteos de GD01, GD03, NO03 y MG03 en PostgreSQL local.
+- [Validación de ocho preguntas](salidas/GD06_ocho_preguntas_s11.txt): identificadores, filas y paridad con las cuatro fuentes y GD04.
 - [Paso E del taller](salidas/S11_validacion_paso_e.md): tres comprobaciones, con dos recorridos seleccionados y pendientes, evidencia documental de los ejes y prueba «una sola vez» no calculable.
-- Capturas reales de Metabase: [servicios](tablero-01.png), [ponderado y simple](tablero-02.png), [madurez por eje](tablero-03.png), [indicadores sin línea base](tablero-06.png), [cobertura de líneas base](tablero-07.png), [cobertura de puntajes](tablero-08.png) y [vista superior del tablero ampliado](tablero-seis-preguntas.png). Las preguntas 4 y 5 no tienen fuentes ni capturas.
+- Capturas reales de Metabase: [servicios](tablero-01.png), [ponderado y simple](tablero-02.png), [madurez por eje](tablero-03.png), [controles documentales](tablero-04.png), [capacidad documental](tablero-05.png), [indicadores sin línea base](tablero-06.png), [cobertura de líneas base](tablero-07.png), [cobertura de puntajes](tablero-08.png) y [tablero completo](tablero-ocho-preguntas.png). Las preguntas 04 y 05 muestran evaluaciones provisionales de S11.
 - [Guía del tablero y estado del entorno](../../docs/tablero-persona-3.md): procedimiento de reproducción y comprobación de Docker.
 
-Las preguntas 07 y 08 se construyeron con GD03 y se cotejaron contra sus 25 filas. No sustituyen las preguntas 04 y 05 de cumplimiento y capacidad.
+Las preguntas 07 y 08 se construyeron con GD03 y se cotejaron contra sus 25 filas. La 04 cuenta controles descritos en S11, sin dictamen legal; la 05 muestra capacidad de TI estimada y objetivo propuesto, sin validación de responsables.

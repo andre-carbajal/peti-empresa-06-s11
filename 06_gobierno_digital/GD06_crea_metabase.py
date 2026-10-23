@@ -111,11 +111,16 @@ def validate_source_parity(rows_by_name):
         row["ID"]: [row["Proceso"], int(row["Capacidad actual (1-5)"]),
                     int(row["Capacidad objetivo (1-5)"])] for row in capacity
     }
-    actual_capacity = {row[0]: [row[1], int(row[2]), int(row[3])]
-                       for row in rows_by_name[QUESTIONS[9][0]]}
-    if actual_capacity != expected_capacity:
+    actual_capacity = {}
+    for process, series, level in rows_by_name[QUESTIONS[9][0]]:
+        actual_capacity.setdefault(process, {})[series] = int(level)
+    expected_chart = {
+        values[0]: {"Actual documental": values[1], "Objetivo propuesto": values[2]}
+        for values in expected_capacity.values()
+    }
+    if actual_capacity != expected_chart:
         raise ValueError("La capacidad documental no coincide con MG03.")
-    print("Paridad completa Metabase ↔ GD01/GD03/GD04: OK")
+    print("Paridad completa Metabase ↔ GD01/GD03/GD04/NO03/MG03: OK")
 
 
 def api(method, path, payload=None, session=None):
@@ -184,8 +189,10 @@ QUESTIONS = [
     ),
     (
         "05 · Capacidad documental actual y objetivo propuesto", "bar",
-        "SELECT id, proceso, capacidad_actual_documental, capacidad_objetivo_propuesta FROM tablero_capacidad_s11 ORDER BY id",
-        {"graph.dimensions": ["proceso"], "graph.metrics": ["capacidad_actual_documental", "capacidad_objetivo_propuesta"]},
+        "SELECT proceso, 'Actual documental' AS serie, capacidad_actual_documental AS nivel FROM tablero_capacidad_s11 "
+        "UNION ALL SELECT proceso, 'Objetivo propuesto' AS serie, capacidad_objetivo_propuesta AS nivel FROM tablero_capacidad_s11 "
+        "ORDER BY proceso, serie",
+        {"graph.dimensions": ["proceso", "serie"], "graph.metrics": ["nivel"]},
         "Estimación del equipo con fuentes S11; requiere validación con responsables.",
     ),
 ]
@@ -274,7 +281,7 @@ def main():
     verified = api("GET", f"/api/dashboard/{dashboard_id}", session=session)
     if len(verified.get("dashcards", [])) != len(layout):
         raise RuntimeError("El tablero no contiene todas las tarjetas previstas.")
-    print(f"Tablero: {BASE}/dashboard/{dashboard_id}; 8 tarjetas, 6 preguntas distintas sustentadas")
+    print(f"Tablero: {BASE}/dashboard/{dashboard_id}; {len(layout)} tarjetas, 8 preguntas distintas sustentadas")
 
 
 if __name__ == "__main__":
