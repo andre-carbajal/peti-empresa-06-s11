@@ -45,7 +45,7 @@ Se contrastaron los seis pasos de [su plan](plan-persona-3.md) con las salidas y
 | 3. Construir preguntas Metabase | Hecho documental con reservas | [GD06](../06_gobierno_digital/GD06_crea_metabase.py) [ejecutó ocho preguntas](../evidencias/S11/salidas/GD06_ocho_preguntas_s11.txt). La 04 cuenta controles documentados y la 05 compara capacidad de TI estimada con objetivos propuestos. No representan dictamen legal ni capacidad validada. |
 | 4. Guardar capturas y salidas | Hecho | [Capturas](../evidencias/S11/README.md) 01–08 y tablero completo; cotejo de filas con GD01, GD03, NO03, MG03 y GD04. |
 | 5. Integrar informe de la plantilla | Parcial | Existe PDF de trabajo con 13 resultados y enlaces; faltan número de grupo y las comprobaciones dependientes de fuente. La plantilla lleva los nombres y códigos aportados por el equipo. |
-| 6. Validar valores y publicar | Hecho documental con reservas | [Paridad de ocho preguntas](../evidencias/S11/salidas/GD06_ocho_preguntas_s11.txt): OK; validación de cuatro CSV y 22 pruebas automáticas: OK. Falta contrastar las estimaciones con responsables. |
+| 6. Validar valores y publicar | Hecho documental con reservas | [Paridad de ocho preguntas](../evidencias/S11/salidas/GD06_ocho_preguntas_s11.txt): OK; validación de cuatro CSV y 22 pruebas automáticas: OK. Falta contrastar las estimaciones con responsables. Las etiquetas `v0.11` y `taller-11` apuntan a un corte anterior a estos cambios; no identifican aún la entrega final. |
 
 ## Comprobaciones del Paso E y cierre
 

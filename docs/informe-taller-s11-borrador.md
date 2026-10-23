@@ -51,7 +51,7 @@ El caso es ficticio. El tablero se configura solo en `127.0.0.1`, no se versiona
 
 **Paso E. Validación:** Las [tres comprobaciones de la guía](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/evidencias/S11/salidas/S11_validacion_paso_e.md) se revisaron y documentaron. Se comprobó la estructura de evidencia de los ocho ejes: 16 puntajes con fuente/fecha y enlace, diez líneas base pendientes con proyecto. Los recorridos S-07 y S-06 y la prueba sobre documentos concretos no se pueden aprobar con el expediente disponible; quedan instrumentados y pendientes de simulación con el docente. GD06 cotejó las ocho preguntas de Metabase con GD01, GD03, NO03, MG03 y GD04.
 
-**Paso F. Registro:** Los artefactos se versionan en `main`. Las etiquetas `v0.11` y `taller-11` se asignan al commit de cierre documental; la etiqueta identifica un corte verificable con las limitaciones descritas, no una validación operativa de la empresa.
+**Paso F. Registro:** Los artefactos se versionan en `main`. Las etiquetas `v0.11` y `taller-11` identifican un corte documental anterior a NO03, MG03 y las capturas 04 y 05. Deben actualizarse al cierre real de la entrega; la versión actual de `main` es la evidencia más reciente.
 
 ## 3. Resultados
 
@@ -71,7 +71,7 @@ La matriz reproduce las 13 filas de la guía. «Parcial» indica que hay evidenc
 | 10 | Radar por eje | Logrado documentalmente | [GD_madurez.png](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/graficos/GD_madurez.png). |
 | 11 | Seis visualizaciones en Metabase | Logrado documentalmente con reservas | [Capturas 01–08](https://github.com/andre-carbajal/peti-empresa-06-s11/tree/main/evidencias/S11): ocho preguntas comprobadas; 04 y 05 usan estimaciones documentales pendientes de validación operativa. |
 | 12 | Sección 6.1 con síntesis | Logrado documentalmente | [Sección 6.1](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/6.1_situacion_actual.md), con limitaciones explícitas. |
-| 13 | Etiqueta `v0.11` | Cierre documental | [Versión v0.11](https://github.com/andre-carbajal/peti-empresa-06-s11/tree/v0.11) y [taller-11](https://github.com/andre-carbajal/peti-empresa-06-s11/tree/taller-11) identifican el mismo corte documentado. |
+| 13 | Etiqueta `v0.11` | Parcial | [Versión v0.11](https://github.com/andre-carbajal/peti-empresa-06-s11/tree/v0.11) y [taller-11](https://github.com/andre-carbajal/peti-empresa-06-s11/tree/taller-11) identifican el corte previo; los avances posteriores están en `main`. |
 
 **Problemas y mejoras.** Solicitar al docente los volúmenes, documentos concretos y recorridos; validar con responsables las matrices documentales NO03 y MG03; obtener acceso a Docker; confirmar el número de grupo del PDF. La [auditoría integral](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/docs/auditoria-integral-s11.md) separa responsabilidades y evidencias.
 
