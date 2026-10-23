@@ -1,6 +1,6 @@
 # Auditoría de los pasos del equipo — Taller S11, Empresa 06
 
-**Corte:** 23/10/2026. **Alcance:** archivos de `main` y ejecución local contrastada con ellos. «Documentado» significa que existe una fuente o salida verificable; no equivale a observación de la empresa ficticia. No se imputan datos ausentes.
+**Corte:** 23/10/2026. **Alcance:** recursos de Semana 11 para Empresa 06, archivos de `main` y ejecución local contrastada con ellos. «Documentado» significa que existe una fuente o salida verificable; no equivale a observación de la empresa ficticia. No se imputan datos ausentes.
 
 ## Persona 1 — catálogo y análisis de servicios
 
@@ -28,17 +28,11 @@ Se contrastaron los seis pasos de [su plan](plan-persona-2.md) con la [entrega](
 
 `NO03_matriz_cumplimiento.csv` y `MG03_capacidad.csv` **no figuran entre los entregables asignados a Persona 2 en su plan S11**. Son insumos de etapas previas indicados en el Paso C del taller. Tampoco aparecen en `main` ni en las ramas remotas actuales. GD03 describe algunos controles y brechas, pero no enumera obligaciones normativas verificadas ni capacidad actual y objetivo de procesos; convertirlo en esas matrices produciría una evaluación sin sustento.
 
-### Fuentes adicionales localizadas en el repositorio del curso
+### Alcance de los recursos de Semana 11
 
-La revisión del 23/10/2026 encontró material de Empresa 06 en otras semanas del [repositorio docente](https://github.com/OscarJimenezFlores/PETI), que no estaba en la carpeta de Semana 11 ni en el repositorio del equipo:
+La [carpeta de Empresa 06 de Semana 11](https://github.com/OscarJimenezFlores/PETI/tree/main/SEMANA-11/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur) contiene `FICHA.md`, `mesa-de-servicio-y-sla.md` y `cuestionario-diagnostico.md`. La sección I de la ficha enumera siete CSV en `datos/`, pero esos archivos no están publicados en dicha carpeta. La [guía S11](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-11/3-TALLER.md) indica que los volúmenes anuales faltantes se piden en la entrevista simulada con el docente. Los 1 929 registros globales de mesa no proporcionan el volumen de cada servicio.
 
-| Semana | Archivos del caso | Utilidad y límite |
-|---|---|---|
-| 08 | [Registro de datos personales e inventario de licencias](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-08/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur/registro-datos-y-licencias.md) | Aporta hechos para elaborar NO03. La [guía S08](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-08/3-TALLER.md) pide que el equipo cree una matriz con al menos 25 obligaciones; el archivo NO03 terminado no viene en los recursos. |
-| 09 | [Contratos de proveedores](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-09/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur/contratos-proveedores.md) y `usuarios_erp.csv` | Aportan hechos para evaluar la capacidad. La [guía S09](https://github.com/OscarJimenezFlores/PETI/blob/main/SEMANA-09/3-TALLER.md) define la escala y pide crear MG03; la matriz terminada no viene en los recursos. |
-| 12 | [Siete CSV de Empresa 06](https://github.com/OscarJimenezFlores/PETI/tree/main/SEMANA-12/RECURSOS-TALLER/EMPRESA-06-distribuidora-andina-sur) | Son `pagos`, `proveedores`, `empleados`, `usuarios_erp`, `bia`, `presupuesto_ti` e `inversiones_cerradas`. Corresponden a los archivos anunciados en la ficha de S11, pero están publicados directamente en la carpeta S12. No registran los volúmenes anuales de los siete servicios ni sus documentos solicitados. |
-
-Esta localización corrige el inventario de fuentes: **sí hay documentación para construir NO03 y MG03**, aunque las matrices deben elaborarse y verificarse; no son archivos ya preparados para copiar. Los siete CSV de S12 no resuelven por sí solos los cálculos de GD02 ni los dos recorridos del Paso E.
+La guía usa NO03 y MG03 como insumos previos para el Paso C, pero no los entrega entre los recursos de Semana 11. El repositorio del equipo tampoco contiene `04_normativa/`. Por ello, las visualizaciones de cumplimiento y capacidad siguen sin base verificable. Esta auditoría se limita a Semana 11 y a los archivos ya versionados por el equipo.
 
 ## Persona 3 — base, tablero e informe
 
