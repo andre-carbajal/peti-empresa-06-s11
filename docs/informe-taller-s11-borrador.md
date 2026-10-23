@@ -6,12 +6,12 @@
 
 **Taller:** Diagnóstico de gobierno digital y tablero de línea base
 
-**Grupo, nombres completos y códigos:** pendientes de confirmación por el equipo.
+**Grupo:** pendiente de confirmación. Los nombres y códigos ya estaban en la copia de plantilla aportada para el PDF local; no se publican en este repositorio.
 
 **Docente:** Dr. Oscar Juan Jimenez Flores
 **Fecha de revisión documental:** 22 de octubre de 2026
 
-> Este borrador sigue las siete secciones de la plantilla oficial. No sustituye el PDF final: falta completar la carátula con nombres y códigos, actualizar el índice en Word y exportar. La guía habla de «sección 5. Resultados y evidencias»; la plantilla descargada enumera **3. Resultados** y **5. Cuestionario**. Se conserva la numeración de la plantilla y se registra la discrepancia para consulta docente.
+> Este borrador sigue las siete secciones de la plantilla oficial. Existe un PDF local con nombres, códigos e índice actualizado, pero la entrega final sigue pendiente por el número de grupo y los resultados faltantes. La guía habla de «sección 5. Resultados y evidencias»; la plantilla descargada enumera **3. Resultados** y **5. Cuestionario**. Se conserva la numeración de la plantilla y se registra la discrepancia para consulta docente.
 
 ## 1. Información sobre el evento práctico
 
@@ -45,7 +45,7 @@ El caso es ficticio. El tablero se configura solo en `127.0.0.1`, no se versiona
 
 **Paso B. Ejes:** [GD03](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/GD03_ejes.csv) incluye 25 indicadores en ocho ejes. [GD04](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/evidencias/S11/salidas/GD04_resumen.json) calcula 1,17/5 sobre 16 indicadores puntuados; diez carecen de línea base y tienen proyecto de instrumentación.
 
-**Paso C. Tablero:** [Compose](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/compose.yaml) restringe PostgreSQL y Metabase a localhost. [GD05](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/GD05_carga_tablero.py) valida y carga los archivos disponibles. La [guía del tablero](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/docs/tablero-persona-3.md) especifica seis preguntas. En la revisión local, Docker Desktop estaba abierto pero el servicio del motor estaba detenido y no pudo iniciarse sin permisos del sistema; no se afirma haber creado preguntas o capturas en Metabase.
+**Paso C. Tablero:** [Compose](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/compose.yaml) restringe PostgreSQL y Metabase a localhost. [GD05](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/GD05_carga_tablero.py) cargó las dos fuentes disponibles en PostgreSQL 16 local. [GD06](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/GD06_crea_metabase.py) creó cuatro preguntas del plan en Metabase v0.52.12 local, con [capturas verificadas](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/evidencias/S11/salidas/GD06_metabase_validacion.txt). Docker Compose no se ejecutó por falta de acceso al motor. Las preguntas 4 y 5 carecen de matrices fuente.
 
 **Paso D. Redacción:** La [sección 6.1](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/6.1_situacion_actual.md) integra el catálogo, ocho ejes, indicadores pendientes, madurez y síntesis de brechas.
 
@@ -69,11 +69,11 @@ La matriz reproduce las 13 filas de la guía. «Parcial» indica que hay evidenc
 | 8 | Pendientes y proyectos | Logrado documentalmente | [Diez proyectos](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/evidencias/S11/salidas/GD04_sin_linea_base.csv). |
 | 9 | Madurez calculada | Parcial | [Resumen GD04](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/evidencias/S11/salidas/GD04_resumen.json): 1,17/5, 16 de 25 puntuados. |
 | 10 | Radar por eje | Logrado documentalmente | [GD_madurez.png](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/graficos/GD_madurez.png). |
-| 11 | Seis visualizaciones en Metabase | Pendiente | [Configuración y consultas](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/docs/tablero-persona-3.md); faltan NO03, MG03 y motor Docker operativo. |
+| 11 | Seis visualizaciones en Metabase | Parcial | [Capturas 01, 02, 03 y 06](https://github.com/andre-carbajal/peti-empresa-06-s11/tree/main/evidencias/S11): cuatro preguntas comprobadas; faltan NO03, MG03 y preguntas 04 y 05. |
 | 12 | Sección 6.1 con síntesis | Logrado documentalmente | [Sección 6.1](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/06_gobierno_digital/6.1_situacion_actual.md), con limitaciones explícitas. |
 | 13 | Etiqueta `v0.11` | Pendiente | Crear sobre el commit final de entrega, junto a `taller-11`. |
 
-**Problemas y mejoras.** Solicitar al docente los volúmenes y recorridos; recuperar las matrices NO03 y MG03 de las semanas anteriores; obtener permisos para iniciar Docker; comparar las seis preguntas con los CSV antes de capturar; añadir nombres, códigos y número de grupo al PDF.
+**Problemas y mejoras.** Solicitar al docente los volúmenes y recorridos; recuperar las matrices NO03 y MG03 de las semanas anteriores; obtener permisos para iniciar Docker; comprobar las preguntas 04 y 05 contra los CSV al recibirlos; confirmar el número de grupo del PDF.
 
 ## 4. Conclusiones
 
@@ -97,4 +97,4 @@ La matriz reproduce las 13 filas de la guía. «Parcial» indica que hay evidenc
 
 - **Anexo A:** [catálogo y gráfico de servicios](https://github.com/andre-carbajal/peti-empresa-06-s11/tree/main/06_gobierno_digital).
 - **Anexo B:** [matriz, radar y salidas de madurez](https://github.com/andre-carbajal/peti-empresa-06-s11/tree/main/evidencias/S11/salidas).
-- **Anexo C:** [configuración y consultas del tablero](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/docs/tablero-persona-3.md). Las capturas de Metabase se anexarán solo tras ejecutar las preguntas.
+- **Anexo C:** [configuración, consultas y capturas del tablero parcial](https://github.com/andre-carbajal/peti-empresa-06-s11/blob/main/docs/tablero-persona-3.md). Las capturas 04 y 05 se anexarán tras ejecutar las preguntas faltantes.

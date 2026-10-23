@@ -18,4 +18,6 @@ Estas salidas documentan una ejecución local y una evaluación de las fuentes d
 
 - [Validación de fuentes GD05](salidas/GD05_validacion_fuentes.txt): siete servicios, siete volúmenes pendientes, 25 indicadores, diez sin línea base y paridad con el resumen de Persona 2.
 - [Validación PostgreSQL GD05](salidas/GD05_postgres_validacion.txt): carga real de dos tablas, conteos de vistas y promedio ponderado NULL. La ejecución fue local y sin Docker.
-- [Guía del tablero y estado del entorno](../../docs/tablero-persona-3.md): consultas previstas y comprobación de Docker. Aún no hay capturas de Metabase; no se debe usar una figura local como si fuera una captura de esa herramienta.
+- [Validación Metabase](salidas/GD06_metabase_validacion.txt): cuatro preguntas ejecutadas, seis tarjetas en el tablero parcial y límites de la prueba.
+- Capturas reales de Metabase: [servicios](tablero-01.png), [ponderado y simple](tablero-02.png), [ejes](tablero-03.png), [indicadores sin línea base](tablero-06.png) y [vista superior del tablero parcial](tablero-parcial.png). Las preguntas 4 y 5 no tienen fuentes ni capturas.
+- [Guía del tablero y estado del entorno](../../docs/tablero-persona-3.md): procedimiento de reproducción y comprobación de Docker.

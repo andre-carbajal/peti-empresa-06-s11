@@ -1,0 +1,20 @@
+Validación local de Metabase — Empresa 06, Taller S11 — 22/10/2026
+
+Metabase v0.52.12 y Java 21, ligados a 127.0.0.1:3001, sin Docker.
+PostgreSQL 16 ligado a 127.0.0.1:5433, con GD01 y GD03 cargados por GD05.
+Origen de las preguntas: commit d3a80fa de main y sus CSV vigentes.
+La instancia local usa credenciales temporales fuera del repositorio.
+
+Se ejecutó GD06_crea_metabase.py contra la fuente PostgreSQL local:
+- Pregunta 01, nivel actual y objetivo por servicio: 7 filas. Captura tablero-01.png.
+- Pregunta 02, ponderado/simple/volúmenes pendientes: 1 fila. El ponderado es NULL, simple 3.00, pendientes 7. Captura tablero-02.png.
+- Pregunta 03, madurez por eje: 8 filas. Captura tablero-03.png.
+- Pregunta 06, indicadores sin línea base: 10 filas. Captura tablero-06.png.
+- Dos tarjetas auxiliares muestran promedio simple 3 y siete volúmenes pendientes.
+- Tablero parcial: seis tarjetas para cuatro preguntas del plan. Captura tablero-parcial.png.
+
+La captura del tablero muestra su parte superior; las cuatro capturas individuales
+muestran completas las preguntas verificadas. Las imágenes 04 y 05 no existen
+porque faltan las fuentes NO03 y MG03. No se afirma que el requisito de seis
+visualizaciones distintas esté cumplido. Tampoco se probó Docker Compose.
+Las URL http://127.0.0.1:3001/... solo funcionan en el equipo durante la sesión local.
