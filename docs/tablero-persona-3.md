@@ -31,7 +31,7 @@ Hay cuatro consultas SQL preparadas para los datos presentes y dos visualizacion
 
 El promedio ponderado es SQL `NULL` cuando falta cualquier volumen o el total es cero. El promedio simple es descriptivo y no sustituye al indicador ponderado.
 
-**Comprobación de entorno del 22/10/2026:** Docker Desktop estaba abierto, pero `com.docker.service` estaba detenido. `docker ps` no respondió y el intento de iniciar el servicio devolvió un error de permisos. Los puertos 5433 y 3001 estaban cerrados. Por tanto, la carga PostgreSQL, las preguntas de Metabase y sus capturas no se declaran ejecutadas.
+**Comprobación de entorno del 22/10/2026:** Docker Desktop estaba abierto, pero `com.docker.service` estaba detenido. `docker ps` no respondió y el intento de iniciar el servicio devolvió un error de permisos. Se inició PostgreSQL 16 portátil ligado a 127.0.0.1:5433 y se ejecutó GD05 sobre las dos fuentes disponibles; [la validación SQL](../evidencias/S11/salidas/GD05_postgres_validacion.txt) registra conteos y el ponderado nulo. Esto no constituye un despliegue de Compose. Metabase no se ejecutó y no hay preguntas ni capturas verificadas.
 
 ## Evidencia e informe
 

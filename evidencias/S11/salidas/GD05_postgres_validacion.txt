@@ -1,0 +1,22 @@
+Validación local de GD05 en PostgreSQL 16 — 22/10/2026
+
+Entorno: PostgreSQL 16 portátil, ligado a 127.0.0.1:5433.
+Base: peti_s11. No se usó Docker ni Metabase en esta comprobación.
+Ejecutado: python 06_gobierno_digital/GD05_carga_tablero.py
+
+Resultado de la carga:
+- servicios: 7 filas de GD01_catalogo_servicios.csv
+- ejes_gd: 25 filas de GD03_ejes.csv
+- cumplimiento: pendiente; falta 04_normativa/NO03_matriz_cumplimiento.csv
+- capacidad: pendiente; falta 04_normativa/MG03_capacidad.csv
+
+Consultas de comprobación:
+- SELECT count(*) FROM servicios: 7
+- SELECT count(*) FROM ejes_gd: 25
+- SELECT count(*) FROM tablero_indicadores_sin_linea_base: 10
+- SELECT promedio_simple, promedio_ponderado, servicios, volumenes_pendientes FROM tablero_niveles:
+  3.00 | NULL | 7 | 7
+
+GD05 cotejó GD03 con GD04_resumen.json: OK.
+El promedio ponderado permanece NULL porque faltan los siete volúmenes anuales.
+La validación no demuestra cuatro tablas cargadas, seis preguntas en Metabase ni capturas.
