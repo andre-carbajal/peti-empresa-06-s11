@@ -9,9 +9,9 @@
 - Integrados en `main` los aportes de Personas 1 y 2 y la preparación de Persona 3.
 - Compose validado para puertos locales 5433 y 3001; GD05 valida los CSV antes de cargar y ofrece `--check` sin PostgreSQL.
 - La validación de fuentes confirma siete servicios, 25 indicadores, diez sin línea base y paridad de los ocho promedios con GD04. Los 21 tests del repositorio pasan. GD05 rechaza columnas reordenadas o valores no finitos y elimina tablas de fuentes ausentes para no conservar datos obsoletos.
-- Seis preguntas definidas en [tablero-persona-3.md](tablero-persona-3.md) y matriz de 13 resultados redactada en [informe-taller-s11-borrador.md](informe-taller-s11-borrador.md).
+- Cuatro consultas SQL listas y dos visualizaciones pendientes de matrices en [tablero-persona-3.md](tablero-persona-3.md); matriz de 13 resultados redactada en [informe-taller-s11-borrador.md](informe-taller-s11-borrador.md).
 - Pendientes de ejecución: Docker no ofrece motor accesible en esta sesión; faltan NO03, MG03 y siete volúmenes anuales. Sin ello no hay cuatro tablas cargadas, seis visualizaciones ni capturas válidas.
-- Pendiente de entrega: el usuario pidió dejar en espera nombres, códigos y grupo de la carátula; el PDF final y las etiquetas se prepararán al cierre conjunto.
+- Pendiente de entrega: la plantilla aportada por el usuario ya contiene nombres y códigos; sigue sin confirmarse el número de grupo. Se generó un PDF local con resultados parciales, pero el PDF final y las etiquetas requieren cerrar el tablero y las evidencias.
 
 ## Objetivo y entregables
 

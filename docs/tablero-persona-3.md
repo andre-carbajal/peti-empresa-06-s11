@@ -2,7 +2,7 @@
 
 ## Estado
 
-La rama parte de `develop`, que integra el trabajo de Personas 1 y 2. GD01 contiene siete servicios con niveles propuestos, pero sin volúmenes anuales validados. GD03 contiene el diagnóstico documental. Faltan `04_normativa/NO03_matriz_cumplimiento.csv` y `04_normativa/MG03_capacidad.csv`. El promedio ponderado y las visualizaciones 4 y 5 quedan pendientes; no se imputan valores.
+El trabajo de las tres personas está integrado en `main`. GD01 contiene siete servicios con niveles propuestos, pero sin volúmenes anuales validados. GD03 contiene el diagnóstico documental. Faltan `04_normativa/NO03_matriz_cumplimiento.csv` y `04_normativa/MG03_capacidad.csv`. El promedio ponderado y las visualizaciones 4 y 5 quedan pendientes; no se imputan valores.
 
 ## Arranque local
 
@@ -18,7 +18,7 @@ Antes de iniciar la base puede ejecutarse `python 06_gobierno_digital/GD05_carga
 
 ## Seis preguntas
 
-Crear estas preguntas en una colección `S11 · Línea base` y guardar capturas completas en `evidencias/S11/` solo cuando estén accesibles.
+Hay cuatro consultas SQL preparadas para los datos presentes y dos visualizaciones descritas que dependen de las matrices ausentes. Al disponer de las cuatro fuentes, crear las seis preguntas en una colección `S11 · Línea base` y guardar capturas completas en `evidencias/S11/` solo cuando estén accesibles.
 
 | N.º | Visualización | Consulta | Estado |
 |---|---|---|---|
@@ -37,4 +37,4 @@ El promedio ponderado es SQL `NULL` cuando falta cualquier volumen o el total es
 
 Nombrar las capturas `tablero-01.png` a `tablero-06.png`; enlazarlas desde el informe solo tras comprobar las preguntas. Registrar la fecha de carga y el commit fuente. No mostrar contraseñas ni nombres de usuarios.
 
-La plantilla DOCX oficial está en el [repositorio del curso](https://github.com/OscarJimenezFlores/PETI/blob/main/PLANTILLAS/SI886-PLANTILLA-TALLER.docx). El [borrador del informe](informe-taller-s11-borrador.md) ya contiene las 13 filas de resultados con estado y enlace. Para cerrar el PDF faltan nombres y códigos del equipo, los dos CSV, los volúmenes validados, los recorridos y las capturas verificadas. La guía llama «sección 5» a los resultados, pero la plantilla real los numera como sección 3; se conserva la plantilla y se consulta la discrepancia con el docente. El caso es ficticio; no afirmar que se probó una organización real.
+La plantilla DOCX oficial está en el [repositorio del curso](https://github.com/OscarJimenezFlores/PETI/blob/main/PLANTILLAS/SI886-PLANTILLA-TALLER.docx). El [borrador del informe](informe-taller-s11-borrador.md) contiene las 13 filas de resultados con estado y enlace. Se generó un PDF local con los nombres y códigos ya presentes en la copia de plantilla aportada por el usuario; no está versionado en este repositorio público. Para cerrar el entregable faltan confirmar el número de grupo, los dos CSV, los volúmenes validados, los recorridos y las capturas verificadas. La guía llama «sección 5» a los resultados, pero la plantilla real los numera como sección 3; se conserva la plantilla y se consulta la discrepancia con el docente. El caso es ficticio; no afirmar que se probó una organización real.
